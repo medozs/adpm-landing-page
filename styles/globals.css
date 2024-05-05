@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  padding: 0;
+  margin: 0;
+  font-size: 0.920rem
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 22px;
+}
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #FEB60C;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #cf9a00;
+}
+
+.custom-bg {
+  background: linear-gradient(135deg, #6b6b6b80 50%, transparent 0),linear-gradient(-135deg, #6b6b6b80 50%, transparent 0);
+  background-size: 8em 8em;
+  background-color: #101929;
+  opacity: 1
+}
