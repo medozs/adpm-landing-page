@@ -54,9 +54,9 @@ export default function Home() {
 
   return (
     <>
-      <div className='flex h-[654px] relative'>
+      <div className='flex h-[658px] relative'>
         {bannerData?.map((item, i) => (
-          <div key={i} className={`absolute w-full h-[654px] ${show === i ? "left-0 blur-none" : "-left-full blur-md"} transition-all duration-700`}>
+          <div key={i} className={`absolute w-full h-[658px] ${show === i ? "left-0 blur-none" : "-left-full blur-md"} transition-all duration-700`}>
             <img src={item.image} alt='' className={`object-cover brightness-50 w-full h-[650px] ease-linear object-bottom`}/>
             <div className='absolute w-full h-full top-0 bottom-0 left-0 right-0 z-20 mt-40'>
               <Container>
@@ -70,7 +70,7 @@ export default function Home() {
                 </div>
               </Container>
             </div>
-            <div className='h-1 w-full flex'>
+            <div className='h-2 w-full flex'>
               <div className={`bg-primary ${isFull ? "w-full transition-all duration-[8000ms] ease-linear" : "w-0"}`}></div>
               <div className={`bg-transparent ${isFull ? "w-0" : "w-full"}`}></div>
             </div>
