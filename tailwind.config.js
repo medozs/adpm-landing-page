@@ -17,6 +17,9 @@ module.exports = {
       },
       fontWeight: {
         "medium" : "600"
+      },
+      backgroundImage: {
+        'about-us': "url('/banner-3.jpg')",
       }
     },
   },

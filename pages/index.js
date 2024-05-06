@@ -3,7 +3,7 @@
 "use client"
 import React, { useEffect, useState } from 'react';
 import { Container } from '../components/container';
-import { ArrowBack, ArrowForward } from '@mui/icons-material';
+import { ArrowBack, ArrowForward, DrawOutlined, Handyman, PeopleOutline, SentimentSatisfiedAlt } from '@mui/icons-material';
 import Button from '../components/button';
 
 export default function Home() {
@@ -42,22 +42,22 @@ export default function Home() {
     },
     {
       image: "/banner-2.jpg",
-      title: "We make sure your project run properly?",
-      desc: "We ensure all services and products had certified quality, respective competentcies and engineering discipline"
+      title: "Elevate Your Project's Success with Superior Quality",
+      desc: "Experience unparalleled excellence as we meticulously oversee every aspect of production, ensuring each service and product meets rigorous quality standards. Our dedicated team of experts brings expertise across diverse disciplines, guaranteeing optimal results for your project"
     },
     {
       image: "/banner-3.jpg",
-      title: "Would you like more value for your project?",
-      desc: "We ensure all services and products had certified quality, fabricated and handled with dedicated manpower in their respective competentcies and engineering discipline"
+      title: "Enhance Your Project's Potential with Certified Excellence",
+      desc: "Harness the power of precision and proficiency as we meticulously certify the quality of all services and products. Backed by dedicated manpower proficient in their respective disciplines, we ensure unmatched standards of excellence to elevate your project to new heights of success"
     },
   ]
 
   return (
     <>
-      <div className='flex h-[658px] relative'>
+      <div className='flex h-[700px] relative'>
         {bannerData?.map((item, i) => (
-          <div key={i} className={`absolute w-full h-[658px] ${show === i ? "left-0 blur-none" : "-left-full blur-md"} transition-all duration-700`}>
-            <img src={item.image} alt='' className={`object-cover brightness-50 w-full h-[650px] ease-linear object-bottom`}/>
+          <div key={i} className={`absolute w-full h-[700px] ${show === i ? "left-0 blur-none" : "-left-full blur-md pr-32"} overflow-hidden transition-all duration-700`}>
+            <img src={item.image} alt='' className={`object-cover brightness-50 w-full h-[700px] ease-linear object-bottom ${isFull ? "scale-125 transition-all duration-[8000ms] ease-linear" : ""}`}/>
             <div className='absolute w-full h-full top-0 bottom-0 left-0 right-0 z-20 mt-40'>
               <Container>
                 <div className={`w-[50%] space-y-12 leading-none absolute ${isFull ? "left-28" : "-left-full"} transition-all duration-500`}>
@@ -69,10 +69,6 @@ export default function Home() {
                   </div>
                 </div>
               </Container>
-            </div>
-            <div className='h-2 w-full flex'>
-              <div className={`bg-primary ${isFull ? "w-full transition-all duration-[8000ms] ease-linear" : "w-0"}`}></div>
-              <div className={`bg-transparent ${isFull ? "w-0" : "w-full"}`}></div>
             </div>
           </div>
         ))}
@@ -88,11 +84,67 @@ export default function Home() {
           />
         </div>
       </div>
-      <Container>
-        <div className='space-y-5 py-16'>
-          <h2 className='font-bold text-secondary text-4xl'>Building Your Vision with Quality and Innovation</h2>
-          <p>Established in 2012, Struktura has been a leading force in the construction industry, specializing in commercial office building construction. Our commitment to quality and innovation sets us apart.</p>
+      <div className='h-2 w-full flex'>
+          <div className={`bg-primary ${isFull ? "w-full transition-all duration-[8000ms] ease-linear" : "w-0"}`}></div>
+          <div className={`bg-transparent ${isFull ? "w-0" : "w-full"}`}></div>
         </div>
+      <Container>
+        <div className='space-y-32'>
+          <div className='py-32 px-32 space-y-5'>
+            <h2 className='font-bold text-secondary text-4xl text-center'>Building Your Vision with Quality and Innovation</h2>
+            <p className='text-center'>Established in 2012, Struktura has been a leading force in the construction industry, specializing in commercial office building construction. Our commitment to quality and innovation sets us apart.</p>
+            <div className='flex justify-between'>
+              <div className='flex space-x-3 text-primary items-center'>
+                <Handyman fontSize='large'/>
+                <div className='text-secondary'>
+                  <div className='font-bold text-2xl'>200</div>
+                  <div>Project Completed </div>
+                </div>
+              </div>
+              <div className='flex space-x-3 text-primary items-center'>
+                <SentimentSatisfiedAlt fontSize='large'/>
+                <div className='text-secondary'>
+                  <div className='font-bold text-2xl'>200</div>
+                  <div>Project Completed </div>
+                </div>
+              </div>
+              <div className='flex space-x-3 text-primary items-center'>
+                <DrawOutlined fontSize='large'/>
+                <div className='text-secondary'>
+                  <div className='font-bold text-2xl'>200</div>
+                  <div>Project Completed </div>
+                </div>
+              </div>
+              <div className='flex space-x-3 text-primary items-center'>
+                <PeopleOutline fontSize='large'/>
+                <div className='text-secondary'>
+                  <div className='font-bold text-2xl'>200</div>
+                  <div>Project Completed </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className='flex space-x-32 items-center justify-between'>
+            <img src='/banner-3.jpg' alt='' className='w-[50%] h-[500px] object-cover object-bottom'/>
+            <div className='w-[50%] space-y-5'>
+              <div className='font-bold text-4xl text-right'>We’re the future of mining industry</div>
+              <div className='text-right'>We ensure all services and products had certified quality, fabricated and handled with dedicated manpower in their respective competentcies and engineering discipline</div>
+              <div className='flex justify-end'>
+                <Button title="Contact Us" contained/>
+              </div>
+            </div>
+          </div>
+
+          {/* <div className='flex space-x-5 items-center justify-between'>
+            <img src='/banner-3.jpg' alt='' className='w-[50%] aspect-square'/>
+            <div className='w-[50%] space-y-5'>
+              <div className='font-bold text-4xl text-right'>We’re the future of mining industry</div>
+              <div className='text-right'>We ensure all services and products had certified quality, fabricated and handled with dedicated manpower in their respective competentcies and engineering discipline</div>
+            </div>
+          </div> */}
+        </div>
+
       </Container>
     </>
   )
