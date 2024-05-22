@@ -3,12 +3,15 @@
 "use client"
 import React, { useEffect, useState } from 'react';
 import { Container } from '../components/container';
-import { ArrowBack, ArrowForward, DrawOutlined, Handyman, PeopleOutline, SentimentSatisfiedAlt } from '@mui/icons-material';
+import { ArrowBack, ArrowForward, DrawOutlined, Facebook, Handyman, Instagram, PeopleOutline, SentimentSatisfiedAlt, X } from '@mui/icons-material';
 import Button from '../components/button';
 import { ServiceCard } from '../components/card/serviceCard';
 import { bannerData, serviceList } from '../utils/dummyData';
+import { useRouter } from 'next/router';
+import { menu } from '../utils/routeList';
 
 export default function Home() {
+  const {push} = useRouter()
   const [isFull, setFull] = useState(false)
   const [show, setShow] = useState(0)
 
@@ -261,7 +264,51 @@ export default function Home() {
         </Container>
         <img src='people.png' alt='' className='absolute -top-[125px] right-20'/>
       </div>
-      <div className='py-32 bg-footer text-white'></div>
+      <div className='pt-32 pb-8 bg-footer text-white'>
+        <Container>
+          <div className='flex justify-between'>
+            <div className='w-[30%] border-r-2 border-white'>
+              <div className='space-y-5'>
+                <div className='text-bold text-3xl'>Logo</div>
+                <div>in Industry, the heartbeat of modern civilization resonates through the relentless pursuit of progress.</div>
+              </div>
+            </div>
+            <div className='w-[30%] border-r-2 border-white'>
+                <div className='font-bold'>Menu</div>
+                {menu.map((item, i) => (
+                  <div 
+                    key={i}
+                    className='cursor-pointer pt-2 hover:underline'
+                    onClick={() => push(item.route)}
+                  >
+                    {item.title}
+                  </div>
+                ))}
+            </div>
+            <div className='w-[30%] space-y-4'>
+              <div>
+                <div className='font-bold'>PT Adi Prakarsa Mekanindo</div>
+                <div>Tower 25-28 Floor</div>
+                <div>District 8 SCBD</div>
+                <div>Jalan Jenderal Sudirman</div>
+                <div>Jakarta Selatan, Indonesia</div>
+              </div>
+              <div className='border-t-[1px] border-white pt-4'>
+                <div>Telepon : +62 123 456 789</div>
+                <div>Faksimile : +62 123 456 789</div>
+              </div>
+              <div className='flex space-x-3 border-t-[1px] border-white pt-4'>
+                <Facebook className='w-8 h-8'/>
+                <Instagram className='w-8 h-8'/>
+                <X className='w-8 h-8'/>
+              </div>
+            </div>
+          </div>
+          <div className='border-t-[1px] text-center mt-12 border-white pt-4'>
+            Copyright 2-24 by PT Adi Prakarsa Mekanindo. All rights reserved
+          </div>
+        </Container>
+      </div>
     </>
   )
 }

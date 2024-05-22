@@ -4,7 +4,7 @@ export const menu = [
     route: "/"
   },
   {
-    title: "Services",
+    title: "Product & Services",
     items: [
       { title: "Design Engineering", route: "/service/1" },
       { title: "Fire Protection System", route: "/service/2" },
