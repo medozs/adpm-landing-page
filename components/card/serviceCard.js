@@ -3,7 +3,7 @@ import React from "react";
 
 export const ServiceCard = ({ img, title }) => {
   return (
-    <div className="relative w-48 h-72">
+    <div className="relative w-48 h-72 cursor-pointer">
       <img
         src={img}
         alt=""

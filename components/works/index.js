@@ -21,7 +21,7 @@ export const Works = ({ data }) => {
         </div>
       </div>
       <div className="w-[600px]">
-        <img src={data.img} alt="" className="object-cover" />
+            <img src={data.img} alt="" className="object-cover object-bottom" />
       </div>
     </div>
   );

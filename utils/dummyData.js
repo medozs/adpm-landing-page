@@ -62,7 +62,7 @@ export const worksList = [
     title: "Mechanical Lifting Project",
     client: "Bartha",
     location: "Jakarta",
-    img: "works1.jpeg"
+    img: "banner-1.png"
   },
   {
     id: 3,
@@ -76,7 +76,7 @@ export const worksList = [
     title: "Mechanical Lifting Project",
     client: "Bartha",
     location: "Jakarta",
-    img: "works1.jpeg"
+    img: "banner-2.jpg"
   },
   {
     id: 5,

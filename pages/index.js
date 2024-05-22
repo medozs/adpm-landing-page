@@ -262,8 +262,8 @@ export default function Home() {
                   infinite={true}
                   speed={200}
                   slidesToShow={3.2}
-                  centerMode
                   slidesToScroll={ 1}
+                  centerMode
                   nextArrow={<SampleNextArrow />}
                   prevArrow={<SamplePrevArrow />}
                 >
