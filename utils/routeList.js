@@ -5,19 +5,16 @@ export const menu = [
   },
   {
     title: "Services",
-    route: "services",
     items: [
-      { title: "Service 1", route: "/service-1" },
-      { title: "Service 2", route: "/service-2" },
+      { title: "Design Engineering", route: "/service/1" },
+      { title: "Fire Protection System", route: "/service/2" },
+      { title: "Mechanical Lifting", route: "/service/3" },
+      { title: "carroserrie & container", route: "/service/3" },
     ],
   },
   {
     title: "Our Projects",
     route: "/our-projects",
-    items: [
-      { title: "project 1", route: "/project-1" },
-      { title: "project 2", route: "/project-2" },
-    ],
   },
   {
     title: "About",

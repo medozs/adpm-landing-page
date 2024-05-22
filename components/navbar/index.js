@@ -26,7 +26,7 @@ const Navbar = () => {
       }`}
     >
       <div className='w-[20%] text-bold text-3xl'>Logo</div>
-      <div className='flex space-x-4 w-[60%] justify-center'>
+      <div className='flex space-x-8 w-[60%] justify-center'>
         {menu.map((item, i) => (
           <NavItems 
             key={i} 

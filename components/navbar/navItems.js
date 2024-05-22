@@ -12,21 +12,31 @@ const NavItems = ({isDropdown, to, title, items}) => {
 
     const shouldDrawLine = isCurrentPath;
 
+    const eventClick = () => {
+        if(to) {
+            push(to)
+        } else {
+            setHover(!isHover)
+        }
+    }
+
     return (
         <div 
-            onClick={() => push(to)}
+            onClick={eventClick}
             onMouseEnter={() => setHover(true)}
-            onMouseLeave={() => setHover(false)}
-            className={shouldDrawLine ? "border-b-2 border-red-500 relative cursor-pointer font-bold uppercase" : "uppercase relative border-b-2 border-transparent cursor-pointer font-bold"}
+            className={`flex items-center uppercase relative border-b-2 cursor-pointer font-bold ${shouldDrawLine ? "border-red-500" : "border-transparent"}`}
         >
             {title}
             <span hidden={!isDropdown}><ExpandMore/></span>
             {isDropdown && isHover ? (
-                <div className='w-64 h-64 bg-white rounded-xl shadow-lg absolute px-3 py-5 space-y-3'>
+                <div
+                    onMouseLeave={() => setHover(false)}
+                    className='w-64 h-auto bg-white rounded-xl shadow-xl absolute left-0 top-10 py-5 space-y-3'
+                >
                     {items.map((item, i) => (
                         <div 
                             key={i}
-                            className='text-black font-normal'
+                            className='text-black font-semibold capitalize hover:bg-primary/40 px-3'
                             onClick={() => push(item.route)}
                         >
                             {item.title}

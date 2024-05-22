@@ -159,7 +159,7 @@ export default function Home() {
       </div>
       <Container>
         <div className='py-32 flex space-x-32 items-center justify-between'>
-          <img src='/banner-3.jpg' alt='' className='w-[50%] h-[500px] object-cover object-bottom'/>
+          <img src='/img-2.jpeg' alt='' className='w-[50%] h-[500px] object-cover object-bottom'/>
           <div className='w-[50%] space-y-5'>
             <div className='font-bold text-4xl text-right'>We’re the future of mining industry</div>
             <div className='text-right'>We ensure all services and products had certified quality, fabricated and handled with dedicated manpower in their respective competentcies and engineering discipline</div>
@@ -204,6 +204,64 @@ export default function Home() {
           </div>
         </Container>
       </div>
+      <div className='py-32'>
+        <h2 className='font-bold text-center text-4xl'>OUR WORKS</h2>
+        <div className='mt-20'>
+          <div className='flex space-x-20 h-80 justify-center'>
+            <div className='flex flex-col font-bold my-12'>
+              <div className='text-3xl'>Mechanical Lifting Project</div>
+              <div className='flex-grow'/>
+              <div>
+                <div>Client: Bartha</div>
+                <div>Location: Jakarta</div>
+              </div>
+              <div className='flex-grow'/>
+              <div className='flex hover:scale-110 transition-all duration-500 cursor-pointer'>
+                <div className='px-5 items-center flex bg-slate-200'>View Detail</div>
+                <div className='bg-primary flex items-center p-2'>
+                  <ArrowForward className='mx-auto'/>
+                </div>
+              </div>
+            </div>
+            <img src='works1.jpeg' alt='' className='object-cover w-[500px]'/>
+          </div>
+        </div>
+      </div>
+      <div className='pt-32 pb-48 bg-section'>
+        <Container>
+          <div className='space-y-8'>
+            <h2 className='font-bold text-center text-4xl'>SOME OF OUR PARTNERSHIP</h2>
+            <div className='text-center'>Building success together Our network of strategic partnerships</div>
+            <div className='flex flex-wrap'>
+              <img src='partner.png' alt='' />
+              <img src='partner.png' alt='' />
+              <img src='partner.png' alt='' />
+              <img src='partner.png' alt='' />
+              <img src='partner.png' alt='' />
+              <img src='partner.png' alt='' />
+              <img src='partner.png' alt='' />
+              <img src='partner.png' alt='' />
+              <img src='partner.png' alt='' />
+              <img src='partner.png' alt='' />
+              <img src='partner.png' alt='' />
+              <img src='partner.png' alt='' />
+            </div>
+          </div>
+        </Container>
+      </div>
+      <div className='relative py-20 bg-primary justify-between overflow-b-hidden'>
+        <Container>
+          <div className='space-y-10 w-[70%] my-auto'>
+            <div className='text-5xl font-bold'>Smart Business <br/>Growth Starts Here. <br/>Take the First Step!</div>
+            <div className='font-semibold'>Always Ready to Lend a Hand</div>
+            <div className='flex'>
+              <Button title="Contact Us" white/>
+            </div>
+          </div>
+        </Container>
+        <img src='people.png' alt='' className='absolute -top-[125px] right-20'/>
+      </div>
+      <div className='py-32 bg-footer text-white'></div>
     </>
   )
 }

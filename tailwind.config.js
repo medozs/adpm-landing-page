@@ -14,7 +14,8 @@ module.exports = {
         "primary" : "#FEB60C",
         "secondary" : "#1D2939",
         "highlight" : "#ffbf00",
-        "section" : "#F2EEEC"
+        "section" : "#F2EEEC",
+        "footer" : "#534B47"
       },
       fontWeight: {
         "medium" : "600"
