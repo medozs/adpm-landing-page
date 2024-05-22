@@ -16,9 +16,10 @@ import { ServiceCard } from "../components/card/serviceCard";
 import { bannerData, serviceList, worksList } from "../utils/dummyData";
 import { Footer } from "../components/footer/footer";
 import { ContactFooter } from "../components/footer/contactFooter";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from "react-responsive-carousel";
+import { Carousel as SingleCarousel } from "react-responsive-carousel";
 import { Works } from "../components/works";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import Slider from "react-slick";
 
 export default function Home() {
   const [isFull, setFull] = useState(false);
@@ -80,21 +81,43 @@ export default function Home() {
     countNum(4, 1000);
   }, []);
 
+  function SampleNextArrow(props) {
+    const { onClick } = props;
+    return (
+      <ArrowForward
+        fontSize="large"
+        className="hover:scale-150 absolute z-30 top-0 right-0 scale-125 shadow-md hover:shadow-lg shadow-black bg-primary p-2 transition-all duration-500 ease-in-out cursor-pointer"
+        onClick={onClick}
+      />
+    );
+  }
+
+  function SamplePrevArrow(props) {
+    const { onClick } = props;
+    return (
+      <ArrowBack
+        fontSize="large"
+        className="hover:scale-150 absolute z-30 top-0 right-16 scale-125 shadow-md hover:shadow-lg shadow-black bg-primary p-2 transition-all duration-500 ease-in-out cursor-pointer"
+        onClick={onClick}
+      />
+    );
+  }
+
   return (
     <>
-      <div className="flex h-[700px] relative">
+      <div className="flex h-[750px] relative">
         {bannerData?.map((item, i) => (
           <div
             key={i}
-            className={`absolute w-full h-[700px] ${show === i ? "left-0 blur-none" : "-left-full blur-md pr-32"} overflow-hidden transition-all duration-700`}
+            className={`absolute w-full h-[750px] ${show === i ? "left-0 blur-none" : "-left-full blur-md pr-32"} overflow-hidden transition-all duration-700`}
           >
             <img
               src={item.image}
               alt=""
               loading="lazy"
-              className={`object-cover brightness-50 w-full h-[700px] ease-linear object-bottom ${isFull ? "scale-125 transition-all duration-[8000ms] ease-linear" : ""}`}
+              className={`object-cover brightness-50 w-full h-[750px] ease-linear object-bottom ${isFull ? "scale-125 transition-all duration-[8000ms] ease-linear" : ""}`}
             />
-            <div className="absolute w-full h-full top-0 bottom-0 left-0 right-0 z-20 mt-52">
+            <div className="absolute w-full h-full top-0 bottom-0 left-0 right-0 z-20 mt-64">
               <Container>
                 <div
                   className={`w-[60%] space-y-12 leading-none absolute z-20 ${isFull ? "left-28" : "-left-full"} transition-all duration-500`}
@@ -234,22 +257,22 @@ export default function Home() {
               </div>
             </div>
             <div className="w-[60%]">
-              <div className="flex space-x-4 justify-end mb-8">
-                <ArrowBack
-                  fontSize="large"
-                  className="hover:scale-150 scale-125 shadow-md hover:shadow-lg shadow-black bg-primary p-2 transition-all duration-500 ease-in-out cursor-pointer"
-                />
-                <ArrowForward
-                  fontSize="large"
-                  className="hover:scale-150 scale-125 shadow-md hover:shadow-lg shadow-black bg-primary p-2 transition-all duration-500 ease-in-out cursor-pointer"
-                />
-              </div>
-              <div className="flex space-x-5 overflow-hidden">
-                {serviceList?.map((item, i) => (
-                  <div key={i}>
-                    <ServiceCard img={item.thumb} title={item.title} />
-                  </div>
-                ))}
+              <div className="relative">
+                <Slider
+                  infinite={true}
+                  speed={200}
+                  slidesToShow={3.2}
+                  centerMode
+                  slidesToScroll={ 1}
+                  nextArrow={<SampleNextArrow />}
+                  prevArrow={<SamplePrevArrow />}
+                >
+                  {serviceList?.map((item, i) => (
+                    <div key={i} className="mt-20">
+                      <ServiceCard img={item.thumb} title={item.title} />
+                    </div>
+                  ))}
+                </Slider>
               </div>
             </div>
           </div>
@@ -258,7 +281,7 @@ export default function Home() {
       <div className="py-32">
         <h2 className="font-bold text-center text-4xl">OUR WORKS</h2>
         <div className="mt-20 relative">
-          <Carousel
+          <SingleCarousel
             autoPlay
             infiniteLoop
             showStatus={false}
@@ -287,7 +310,7 @@ export default function Home() {
             {worksList.map((item, i) => (
               <Works key={i} data={item} />
             ))}
-          </Carousel>
+          </SingleCarousel>
         </div>
       </div>
       <div className="pt-32 pb-48 bg-section">
