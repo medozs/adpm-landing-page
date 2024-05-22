@@ -1,157 +1,191 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
-"use client"
-import React, { useEffect, useState } from 'react';
-import { Container } from '../components/container';
-import { ArrowBack, ArrowForward, DrawOutlined, Handyman, PeopleOutline, SentimentSatisfiedAlt } from '@mui/icons-material';
-import Button from '../components/button';
-import { ServiceCard } from '../components/card/serviceCard';
-import { bannerData, serviceList } from '../utils/dummyData';
-import { Footer } from '../components/footer/footer';
-import { ContactFooter } from '../components/footer/contactFooter';
+"use client";
+import React, { useEffect, useState } from "react";
+import { Container } from "../components/container";
+import {
+  ArrowBack,
+  ArrowForward,
+  DrawOutlined,
+  Handyman,
+  PeopleOutline,
+  SentimentSatisfiedAlt,
+} from "@mui/icons-material";
+import Button from "../components/button";
+import { ServiceCard } from "../components/card/serviceCard";
+import { bannerData, serviceList } from "../utils/dummyData";
+import { Footer } from "../components/footer/footer";
+import { ContactFooter } from "../components/footer/contactFooter";
 
 export default function Home() {
-  const [isFull, setFull] = useState(false)
-  const [show, setShow] = useState(0)
+  const [isFull, setFull] = useState(false);
+  const [show, setShow] = useState(0);
 
-  const [data1, setData1] = useState(0)
-  const [data2, setData2] = useState(0)
-  const [data3, setData3] = useState(0)
-  const [data4, setData4] = useState(0)
+  const [data1, setData1] = useState(0);
+  const [data2, setData2] = useState(0);
+  const [data3, setData3] = useState(0);
+  const [data4, setData4] = useState(0);
 
   useEffect(() => {
-    if(isFull) {
+    if (isFull) {
       setTimeout(() => {
-        if(show < 2) {
-          setShow(show + 1)
+        if (show < 2) {
+          setShow(show + 1);
         } else {
-          setShow(0)
+          setShow(0);
         }
-      }, 8000)
+      }, 8000);
     }
-  }, [isFull])
-
+  }, [isFull]);
 
   useEffect(() => {
     setTimeout(() => {
-      setFull(!isFull)
-    }, 8000)
-    if(!isFull) {
+      setFull(!isFull);
+    }, 8000);
+    if (!isFull) {
       setTimeout(() => {
-        setFull(true)
-      }, 1000)
+        setFull(true);
+      }, 1000);
     }
-  })
+  });
 
   const countNum = (data, num) => {
-    let startVal = num > 500 ? 500 : 0
-    let endVal = parseInt(num)
-    let duration = Math.floor(500 / endVal)
+    let startVal = num > 500 ? 500 : 0;
+    let endVal = parseInt(num);
+    let duration = Math.floor(500 / endVal);
     let counter = setInterval(function () {
-      startVal = startVal + 1
+      startVal = startVal + 1;
       if (startVal === endVal) {
-        clearInterval(counter)
+        clearInterval(counter);
       }
-      if(data === 1) {
-        setData1(startVal)
+      if (data === 1) {
+        setData1(startVal);
       } else if (data === 2) {
-        setData2(startVal)
+        setData2(startVal);
       } else if (data === 3) {
-        setData3(startVal)
+        setData3(startVal);
       } else if (data === 4) {
-        setData4(startVal)
+        setData4(startVal);
       }
-    }, duration)
-  }
+    }, duration);
+  };
 
   useEffect(() => {
-    countNum(1, 28)
-    countNum(2, 200)
-    countNum(3, 40)
-    countNum(4, 1000)
-  }, [])
+    countNum(1, 28);
+    countNum(2, 200);
+    countNum(3, 40);
+    countNum(4, 1000);
+  }, []);
 
   return (
     <>
-      <div className='flex h-[700px] relative'>
+      <div className="flex h-[700px] relative">
         {bannerData?.map((item, i) => (
-          <div key={i} className={`absolute w-full h-[700px] ${show === i ? "left-0 blur-none" : "-left-full blur-md pr-32"} overflow-hidden transition-all duration-700`}>
-            <img 
-              src={item.image} 
-              alt='' 
-              loading='lazy'
+          <div
+            key={i}
+            className={`absolute w-full h-[700px] ${show === i ? "left-0 blur-none" : "-left-full blur-md pr-32"} overflow-hidden transition-all duration-700`}
+          >
+            <img
+              src={item.image}
+              alt=""
+              loading="lazy"
               className={`object-cover brightness-50 w-full h-[700px] ease-linear object-bottom ${isFull ? "scale-125 transition-all duration-[8000ms] ease-linear" : ""}`}
             />
-            <div className='absolute w-full h-full top-0 bottom-0 left-0 right-0 z-20 mt-52'>
+            <div className="absolute w-full h-full top-0 bottom-0 left-0 right-0 z-20 mt-52">
               <Container>
-                <div className={`w-[60%] space-y-12 leading-none absolute z-20 ${isFull ? "left-28" : "-left-full"} transition-all duration-500`}>
-                  <div className='text-white text-[54px] font-semibold'>{item?.title}</div>
-                  <div className='text-white text-xl'>{item?.desc}</div>
-                  <div className='flex space-x-3'>
-                    <Button title="Our Service"/>
-                    <Button title="Contact Us" contained/>
+                <div
+                  className={`w-[60%] space-y-12 leading-none absolute z-20 ${isFull ? "left-28" : "-left-full"} transition-all duration-500`}
+                >
+                  <div className="text-white text-[54px] font-semibold">
+                    {item?.title}
+                  </div>
+                  <div className="text-white text-xl">{item?.desc}</div>
+                  <div className="flex space-x-3">
+                    <Button title="Our Service" />
+                    <Button title="Contact Us" contained />
                   </div>
                 </div>
               </Container>
             </div>
           </div>
         ))}
-        <div className='absolute bottom-20 right-20 z-20 flex space-x-4'>
+        <div className="absolute bottom-20 right-20 z-20 flex space-x-4">
           <ArrowBack
-            fontSize='large' 
-            className='hover:scale-150 scale-125 shadow-md hover:shadow-lg shadow-black bg-[#DBD5D2] p-2 transition-all duration-500 ease-in-out cursor-pointer'
+            fontSize="large"
+            className="hover:scale-150 scale-125 shadow-md hover:shadow-lg shadow-black bg-[#DBD5D2] p-2 transition-all duration-500 ease-in-out cursor-pointer"
           />
           <ArrowForward
-            fontSize='large' 
-            className='hover:scale-150 scale-125 shadow-md hover:shadow-lg shadow-black bg-[#DBD5D2] p-2 transition-all duration-500 ease-in-out cursor-pointer'
+            fontSize="large"
+            className="hover:scale-150 scale-125 shadow-md hover:shadow-lg shadow-black bg-[#DBD5D2] p-2 transition-all duration-500 ease-in-out cursor-pointer"
           />
         </div>
       </div>
-      <div className='h-2 w-full flex'>
-        <div className={`bg-primary ${isFull ? "w-full transition-all duration-[8000ms] ease-linear" : "w-0"}`}></div>
+      <div className="h-2 w-full flex">
+        <div
+          className={`bg-primary ${isFull ? "w-full transition-all duration-[8000ms] ease-linear" : "w-0"}`}
+        ></div>
         <div className={`bg-transparent ${isFull ? "w-0" : "w-full"}`}></div>
       </div>
-      <div className='bg-section'>
+      <div className="bg-section">
         <Container>
-          <div className='py-32 flex space-x-8'>
-            <div className='w-[50%] space-y-16 my-auto'>
-              <h2 className='font-bold text-4xl'>Building Your Vision with Quality and Innovation</h2>
-              <p className=''>Established in 2012, Struktura has been a leading force in the construction industry, specializing in commercial office building construction. Our commitment to quality and innovation sets us apart.</p>
+          <div className="py-32 flex space-x-8">
+            <div className="w-[50%] space-y-16 my-auto">
+              <h2 className="font-bold text-4xl">
+                Building Your Vision with Quality and Innovation
+              </h2>
+              <p className="">
+                Established in 2012, Struktura has been a leading force in the
+                construction industry, specializing in commercial office
+                building construction. Our commitment to quality and innovation
+                sets us apart.
+              </p>
             </div>
-            <div className='flex justify-between w-[50%] space-x-5'>
-              <div className='w-[50%] space-y-5'>
-                <div className='flex space-x-3 text-primary'>
-                  <Handyman fontSize='large'/>
-                  <div className='text-secondary space-y-2'>
-                    <div className='font-bold text-2xl'>{data1}</div>
-                    <div className='font-bold'>Project Completed</div>
-                    <div>Our customer trust us again and again to manage their most important building construct</div>
+            <div className="flex justify-between w-[50%] space-x-5">
+              <div className="w-[50%] space-y-5">
+                <div className="flex space-x-3 text-primary">
+                  <Handyman fontSize="large" />
+                  <div className="text-secondary space-y-2">
+                    <div className="font-bold text-2xl">{data1}</div>
+                    <div className="font-bold">Project Completed</div>
+                    <div>
+                      Our customer trust us again and again to manage their most
+                      important building construct
+                    </div>
                   </div>
                 </div>
-                <div className='flex space-x-3 text-primary'>
-                  <SentimentSatisfiedAlt fontSize='large'/>
-                  <div className='text-secondary space-y-2'>
-                    <div className='font-bold text-2xl'>{data2}</div>
-                    <div className='font-bold'>Happy Customer</div>
-                    <div>Our customer trust us again and again to manage their most important building construct</div>
+                <div className="flex space-x-3 text-primary">
+                  <SentimentSatisfiedAlt fontSize="large" />
+                  <div className="text-secondary space-y-2">
+                    <div className="font-bold text-2xl">{data2}</div>
+                    <div className="font-bold">Happy Customer</div>
+                    <div>
+                      Our customer trust us again and again to manage their most
+                      important building construct
+                    </div>
                   </div>
                 </div>
               </div>
-              <div className='w-[50%] space-y-5'>
-                <div className='flex space-x-3 text-primary'>
-                  <DrawOutlined fontSize='large'/>
-                  <div className='text-secondary space-y-2'>
-                    <div className='font-bold text-2xl'>{data3}</div>
-                    <div className='font-bold'>Design Services</div>
-                    <div>Our customer trust us again and again to manage their most important building construct</div>
+              <div className="w-[50%] space-y-5">
+                <div className="flex space-x-3 text-primary">
+                  <DrawOutlined fontSize="large" />
+                  <div className="text-secondary space-y-2">
+                    <div className="font-bold text-2xl">{data3}</div>
+                    <div className="font-bold">Design Services</div>
+                    <div>
+                      Our customer trust us again and again to manage their most
+                      important building construct
+                    </div>
                   </div>
                 </div>
-                <div className='flex space-x-3 text-primary'>
-                  <PeopleOutline fontSize='large'/>
-                  <div className='text-secondary space-y-2'>
-                    <div className='font-bold text-2xl'>{data4}</div>
-                    <div className='font-bold'>Worker Employed</div>
-                    <div>Our customer trust us again and again to manage their most important building construct</div>
+                <div className="flex space-x-3 text-primary">
+                  <PeopleOutline fontSize="large" />
+                  <div className="text-secondary space-y-2">
+                    <div className="font-bold text-2xl">{data4}</div>
+                    <div className="font-bold">Worker Employed</div>
+                    <div>
+                      Our customer trust us again and again to manage their most
+                      important building construct
+                    </div>
                   </div>
                 </div>
               </div>
@@ -160,45 +194,57 @@ export default function Home() {
         </Container>
       </div>
       <Container>
-        <div className='py-32 flex space-x-32 items-center justify-between'>
-          <img src='/img-2.jpeg' alt='' className='w-[50%] h-[500px] object-cover object-bottom'/>
-          <div className='w-[50%] space-y-5'>
-            <div className='font-bold text-4xl text-right'>We’re the future of mining industry</div>
-            <div className='text-right'>We ensure all services and products had certified quality, fabricated and handled with dedicated manpower in their respective competentcies and engineering discipline</div>
-            <div className='flex justify-end'>
-              <Button title="Contact Us" contained/>
+        <div className="py-32 flex space-x-32 items-center justify-between">
+          <img
+            src="/img-2.jpeg"
+            alt=""
+            className="w-[50%] h-[500px] object-cover object-bottom"
+          />
+          <div className="w-[50%] space-y-5">
+            <div className="font-bold text-4xl text-right">
+              We’re the future of mining industry
+            </div>
+            <div className="text-right">
+              We ensure all services and products had certified quality,
+              fabricated and handled with dedicated manpower in their respective
+              competentcies and engineering discipline
+            </div>
+            <div className="flex justify-end">
+              <Button title="Contact Us" contained />
             </div>
           </div>
         </div>
       </Container>
-      <div className='bg-section'>
+      <div className="bg-section">
         <Container>
-          <div className='py-32 flex space-x-16'>
-            <div className='w-[40%] space-y-16 border-b-2 border-black'>
-              <h2 className='font-bold text-4xl'>ALL YOU NEED PRODUCT & SERVICES</h2>
-              <p className=''>Simplify your industrial journey with ease. All You Need Products & Services empowers you to achieve operational success.</p>
-              <div className='flex'>
-                <Button title="SEE ALL" contained/>
+          <div className="py-32 flex space-x-16">
+            <div className="w-[40%] space-y-16 border-b-2 border-black">
+              <h2 className="font-bold text-4xl">
+                ALL YOU NEED PRODUCT & SERVICES
+              </h2>
+              <p className="">
+                Simplify your industrial journey with ease. All You Need
+                Products & Services empowers you to achieve operational success.
+              </p>
+              <div className="flex">
+                <Button title="SEE ALL" contained />
               </div>
             </div>
-            <div className='w-[60%]'>
-              <div className='flex space-x-4 justify-end mb-8'>
+            <div className="w-[60%]">
+              <div className="flex space-x-4 justify-end mb-8">
                 <ArrowBack
-                  fontSize='large' 
-                  className='hover:scale-150 scale-125 shadow-md hover:shadow-lg shadow-black bg-primary p-2 transition-all duration-500 ease-in-out cursor-pointer'
+                  fontSize="large"
+                  className="hover:scale-150 scale-125 shadow-md hover:shadow-lg shadow-black bg-primary p-2 transition-all duration-500 ease-in-out cursor-pointer"
                 />
                 <ArrowForward
-                  fontSize='large' 
-                  className='hover:scale-150 scale-125 shadow-md hover:shadow-lg shadow-black bg-primary p-2 transition-all duration-500 ease-in-out cursor-pointer'
+                  fontSize="large"
+                  className="hover:scale-150 scale-125 shadow-md hover:shadow-lg shadow-black bg-primary p-2 transition-all duration-500 ease-in-out cursor-pointer"
                 />
               </div>
-              <div className='flex space-x-5 overflow-hidden'>
+              <div className="flex space-x-5 overflow-hidden">
                 {serviceList?.map((item, i) => (
                   <div key={i}>
-                    <ServiceCard 
-                      img={item.thumb}
-                      title={item.title}
-                    />
+                    <ServiceCard img={item.thumb} title={item.title} />
                   </div>
                 ))}
               </div>
@@ -206,53 +252,59 @@ export default function Home() {
           </div>
         </Container>
       </div>
-      <div className='py-32'>
-        <h2 className='font-bold text-center text-4xl'>OUR WORKS</h2>
-        <div className='mt-20'>
-          <div className='flex space-x-20 h-80 justify-center'>
-            <div className='flex flex-col font-bold my-12'>
-              <div className='text-3xl'>Mechanical Lifting Project</div>
-              <div className='flex-grow'/>
+      <div className="py-32">
+        <h2 className="font-bold text-center text-4xl">OUR WORKS</h2>
+        <div className="mt-20">
+          <div className="flex space-x-20 h-80 justify-center">
+            <div className="flex flex-col font-bold my-12">
+              <div className="text-3xl">Mechanical Lifting Project</div>
+              <div className="flex-grow" />
               <div>
                 <div>Client: Bartha</div>
                 <div>Location: Jakarta</div>
               </div>
-              <div className='flex-grow'/>
-              <div className='flex hover:scale-110 transition-all duration-500 cursor-pointer'>
-                <div className='px-5 items-center flex bg-slate-200'>View Detail</div>
-                <div className='bg-primary flex items-center p-2'>
-                  <ArrowForward className='mx-auto'/>
+              <div className="flex-grow" />
+              <div className="flex hover:scale-110 transition-all duration-500 cursor-pointer">
+                <div className="px-5 items-center flex bg-slate-200">
+                  View Detail
+                </div>
+                <div className="bg-primary flex items-center p-2">
+                  <ArrowForward className="mx-auto" />
                 </div>
               </div>
             </div>
-            <img src='works1.jpeg' alt='' className='object-cover w-[500px]'/>
+            <img src="works1.jpeg" alt="" className="object-cover w-[500px]" />
           </div>
         </div>
       </div>
-      <div className='pt-32 pb-48 bg-section'>
+      <div className="pt-32 pb-48 bg-section">
         <Container>
-          <div className='space-y-8'>
-            <h2 className='font-bold text-center text-4xl'>SOME OF OUR PARTNERSHIP</h2>
-            <div className='text-center'>Building success together Our network of strategic partnerships</div>
-            <div className='flex flex-wrap'>
-              <img src='partner.png' alt='' />
-              <img src='partner.png' alt='' />
-              <img src='partner.png' alt='' />
-              <img src='partner.png' alt='' />
-              <img src='partner.png' alt='' />
-              <img src='partner.png' alt='' />
-              <img src='partner.png' alt='' />
-              <img src='partner.png' alt='' />
-              <img src='partner.png' alt='' />
-              <img src='partner.png' alt='' />
-              <img src='partner.png' alt='' />
-              <img src='partner.png' alt='' />
+          <div className="space-y-8">
+            <h2 className="font-bold text-center text-4xl">
+              SOME OF OUR PARTNERSHIP
+            </h2>
+            <div className="text-center">
+              Building success together Our network of strategic partnerships
+            </div>
+            <div className="flex flex-wrap">
+              <img src="partner.png" alt="" />
+              <img src="partner.png" alt="" />
+              <img src="partner.png" alt="" />
+              <img src="partner.png" alt="" />
+              <img src="partner.png" alt="" />
+              <img src="partner.png" alt="" />
+              <img src="partner.png" alt="" />
+              <img src="partner.png" alt="" />
+              <img src="partner.png" alt="" />
+              <img src="partner.png" alt="" />
+              <img src="partner.png" alt="" />
+              <img src="partner.png" alt="" />
             </div>
           </div>
         </Container>
       </div>
-      <ContactFooter/>
-      <Footer/>
+      <ContactFooter />
+      <Footer />
     </>
-  )
+  );
 }

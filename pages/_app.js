@@ -1,48 +1,45 @@
 /* eslint-disable @next/next/no-img-element */
-"use client"
-import '../styles/globals.css'
-import { useEffect, useState } from 'react'
-import { Provider } from 'react-redux'
-import store from '../redux/store'
-import { QueryClient, QueryClientProvider } from 'react-query'
-import { Container } from '../components/container'
-import { useRouter } from 'next/router'
-import Navbar from '../components/navbar'
+"use client";
+import "../styles/globals.css";
+import { useEffect, useState } from "react";
+import { Provider } from "react-redux";
+import store from "../redux/store";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { Container } from "../components/container";
+import { useRouter } from "next/router";
+import Navbar from "../components/navbar";
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient();
 
-const MyApp = ({
-  Component,
-  pageProps: { ...pageProps },
-}) => {
-  const [mobileNav, setMobileNav] = useState(false)
+const MyApp = ({ Component, pageProps: { ...pageProps } }) => {
+  const [mobileNav, setMobileNav] = useState(false);
   const handleShow = () => {
-    setMobileNav(true)
-  }
+    setMobileNav(true);
+  };
 
-  const [auth, setAuth] = useState(false)
-  const { pathname } = useRouter()
+  const [auth, setAuth] = useState(false);
+  const { pathname } = useRouter();
 
   useEffect(() => {
     if (
-      pathname === "/login" || 
+      pathname === "/login" ||
       pathname === "/forgot-password" ||
       pathname === "/reset"
     ) {
-      setAuth(false)
+      setAuth(false);
     } else {
-      setAuth(true)
+      setAuth(true);
     }
-  }, [pathname])
+  }, [pathname]);
 
   return (
     <QueryClientProvider client={queryClient}>
       <Provider store={store}>
-        <Navbar/>
+        <Navbar />
         <Component {...pageProps} />
       </Provider>
     </QueryClientProvider>
-  )
-}
+  );
+};
 
-export default MyApp
+export default MyApp;

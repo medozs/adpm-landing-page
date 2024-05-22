@@ -1,5 +1,5 @@
-"use client"
-import React from 'react'
+"use client";
+import React from "react";
 
 export const Container = (props) => {
   return (
@@ -8,5 +8,5 @@ export const Container = (props) => {
         {props.children}
       </div>
     </>
-  )
-}
+  );
+};

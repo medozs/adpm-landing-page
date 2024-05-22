@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const ErrorNotFound = () => {
-  return (
-    <div>ErrorNotFound</div>
-  )
-}
+  return <div>ErrorNotFound</div>;
+};
 
-export default ErrorNotFound
+export default ErrorNotFound;
