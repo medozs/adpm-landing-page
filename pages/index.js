@@ -13,9 +13,12 @@ import {
 } from "@mui/icons-material";
 import Button from "../components/button";
 import { ServiceCard } from "../components/card/serviceCard";
-import { bannerData, serviceList } from "../utils/dummyData";
+import { bannerData, serviceList, worksList } from "../utils/dummyData";
 import { Footer } from "../components/footer/footer";
 import { ContactFooter } from "../components/footer/contactFooter";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
+import { Works } from "../components/works";
 
 export default function Home() {
   const [isFull, setFull] = useState(false);
@@ -254,27 +257,37 @@ export default function Home() {
       </div>
       <div className="py-32">
         <h2 className="font-bold text-center text-4xl">OUR WORKS</h2>
-        <div className="mt-20">
-          <div className="flex space-x-20 h-80 justify-center">
-            <div className="flex flex-col font-bold my-12">
-              <div className="text-3xl">Mechanical Lifting Project</div>
-              <div className="flex-grow" />
-              <div>
-                <div>Client: Bartha</div>
-                <div>Location: Jakarta</div>
-              </div>
-              <div className="flex-grow" />
-              <div className="flex hover:scale-110 transition-all duration-500 cursor-pointer">
-                <div className="px-5 items-center flex bg-slate-200">
-                  View Detail
-                </div>
-                <div className="bg-primary flex items-center p-2">
-                  <ArrowForward className="mx-auto" />
-                </div>
-              </div>
-            </div>
-            <img src="works1.jpeg" alt="" className="object-cover w-[500px]" />
-          </div>
+        <div className="mt-20 relative">
+          <Carousel
+            autoPlay
+            infiniteLoop
+            showStatus={false}
+            showArrows={false}
+            centerMode
+            transitionTime={300}
+            renderArrowPrev={(clickHandler) => {
+              return (
+                <ArrowBack
+                  fontSize="large"
+                  className="hover:scale-150 scale-125 absolute top-32 left-32 z-30 shadow-md hover:shadow-lg shadow-black bg-primary p-2 transition-all duration-500 ease-in-out cursor-pointer"
+                  onClick={clickHandler}
+                />
+              );
+            }}
+            renderArrowNext={(clickHandler) => {
+              return (
+                <ArrowForward
+                  fontSize="large"
+                  className="hover:scale-150 scale-125 absolute top-32 right-32 z-30 shadow-md hover:shadow-lg shadow-black bg-primary p-2 transition-all duration-500 ease-in-out cursor-pointer"
+                  onClick={clickHandler}
+                />
+              );
+            }}
+          >
+            {worksList.map((item, i) => (
+              <Works key={i} data={item} />
+            ))}
+          </Carousel>
         </div>
       </div>
       <div className="pt-32 pb-48 bg-section">

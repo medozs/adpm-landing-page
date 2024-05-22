@@ -48,3 +48,41 @@ export const serviceList = [
         thumb: "/banner-3.jpg",
     },
 ]
+
+export const worksList = [
+  {
+    id: 1,
+    title: "Mechanical Lifting Project",
+    client: "Bartha",
+    location: "Jakarta",
+    img: "works1.jpeg"
+  },
+  {
+    id: 2,
+    title: "Mechanical Lifting Project",
+    client: "Bartha",
+    location: "Jakarta",
+    img: "works1.jpeg"
+  },
+  {
+    id: 3,
+    title: "Mechanical Lifting Project",
+    client: "Bartha",
+    location: "Jakarta",
+    img: "works1.jpeg"
+  },
+  {
+    id: 4,
+    title: "Mechanical Lifting Project",
+    client: "Bartha",
+    location: "Jakarta",
+    img: "works1.jpeg"
+  },
+  {
+    id: 5,
+    title: "Mechanical Lifting Project",
+    client: "Bartha",
+    location: "Jakarta",
+    img: "works1.jpeg"
+  }
+]
