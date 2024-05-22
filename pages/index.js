@@ -1,5 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable @next/next/no-img-element */
 "use client";
 import React, { useEffect, useState } from "react";
 import { Container } from "../components/container";
@@ -20,6 +18,7 @@ import { Carousel as SingleCarousel } from "react-responsive-carousel";
 import { Works } from "../components/works";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Slider from "react-slick";
+import Image from "next/image";
 
 export default function Home() {
   const [isFull, setFull] = useState(false);
@@ -111,10 +110,12 @@ export default function Home() {
             key={i}
             className={`absolute w-full h-[750px] ${show === i ? "left-0 blur-none" : "-left-full blur-md pr-32"} overflow-hidden transition-all duration-700`}
           >
-            <img
+            <Image
               src={item.image}
               alt=""
               loading="lazy"
+              width={1500}
+              height={850}
               className={`object-cover brightness-50 w-full h-[750px] ease-linear object-bottom ${isFull ? "scale-125 transition-all duration-[8000ms] ease-linear" : ""}`}
             />
             <div className="absolute w-full h-full top-0 bottom-0 left-0 right-0 z-20 mt-64">
@@ -221,10 +222,12 @@ export default function Home() {
       </div>
       <Container>
         <div className="py-32 flex space-x-32 items-center justify-between">
-          <img
+          <Image
             src="/img-2.jpeg"
             alt=""
             className="w-[50%] h-[500px] object-cover object-bottom"
+            width={1000}
+            height={500}
           />
           <div className="w-[50%] space-y-5">
             <div className="font-bold text-4xl text-right">
@@ -323,18 +326,18 @@ export default function Home() {
               Building success together Our network of strategic partnerships
             </div>
             <div className="flex flex-wrap">
-              <img src="partner.png" alt="" />
-              <img src="partner.png" alt="" />
-              <img src="partner.png" alt="" />
-              <img src="partner.png" alt="" />
-              <img src="partner.png" alt="" />
-              <img src="partner.png" alt="" />
-              <img src="partner.png" alt="" />
-              <img src="partner.png" alt="" />
-              <img src="partner.png" alt="" />
-              <img src="partner.png" alt="" />
-              <img src="partner.png" alt="" />
-              <img src="partner.png" alt="" />
+              <Image src="/partner.png" width={100} height={100} alt="" />
+              <Image src="/partner.png" width={100} height={100} alt="" />
+              <Image src="/partner.png" width={100} height={100} alt="" />
+              <Image src="/partner.png" width={100} height={100} alt="" />
+              <Image src="/partner.png" width={100} height={100} alt="" />
+              <Image src="/partner.png" width={100} height={100} alt="" />
+              <Image src="/partner.png" width={100} height={100} alt="" />
+              <Image src="/partner.png" width={100} height={100} alt="" />
+              <Image src="/partner.png" width={100} height={100} alt="" />
+              <Image src="/partner.png" width={100} height={100} alt="" />
+              <Image src="/partner.png" width={100} height={100} alt="" />
+              <Image src="/partner.png" width={100} height={100} alt="" />
             </div>
           </div>
         </Container>

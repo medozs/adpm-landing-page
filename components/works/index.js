@@ -1,5 +1,5 @@
-/* eslint-disable @next/next/no-img-element */
 import { ArrowForward } from "@mui/icons-material";
+import Image from "next/image";
 import React from "react";
 
 export const Works = ({ data }) => {
@@ -21,7 +21,7 @@ export const Works = ({ data }) => {
         </div>
       </div>
       <div className="w-[600px]">
-            <img src={data.img} alt="" className="object-cover object-bottom" />
+            <Image width={600} height={400} src={data.img} alt="" className="object-cover object-bottom" />
       </div>
     </div>
   );

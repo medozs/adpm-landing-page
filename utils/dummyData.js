@@ -55,34 +55,34 @@ export const worksList = [
     title: "Mechanical Lifting Project",
     client: "Bartha",
     location: "Jakarta",
-    img: "works1.jpeg"
+    img: "/works1.jpeg"
   },
   {
     id: 2,
     title: "Mechanical Lifting Project",
     client: "Bartha",
     location: "Jakarta",
-    img: "banner-1.png"
+    img: "/banner-1.png"
   },
   {
     id: 3,
     title: "Mechanical Lifting Project",
     client: "Bartha",
     location: "Jakarta",
-    img: "works1.jpeg"
+    img: "/works1.jpeg"
   },
   {
     id: 4,
     title: "Mechanical Lifting Project",
     client: "Bartha",
     location: "Jakarta",
-    img: "banner-2.jpg"
+    img: "/banner-2.jpg"
   },
   {
     id: 5,
     title: "Mechanical Lifting Project",
     client: "Bartha",
     location: "Jakarta",
-    img: "works1.jpeg"
+    img: "/works1.jpeg"
   }
 ]
