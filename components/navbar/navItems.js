@@ -17,7 +17,7 @@ const NavItems = ({isDropdown, to, title, items}) => {
             onClick={() => push(to)}
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
-            className={shouldDrawLine ? "border-b-2 border-red-500 relative cursor-pointer font-bold" : "relative border-b-2 border-transparent cursor-pointer font-bold"}
+            className={shouldDrawLine ? "border-b-2 border-red-500 relative cursor-pointer font-bold uppercase" : "uppercase relative border-b-2 border-transparent cursor-pointer font-bold"}
         >
             {title}
             <span hidden={!isDropdown}><ExpandMore/></span>

@@ -13,7 +13,8 @@ module.exports = {
       colors: {
         "primary" : "#FEB60C",
         "secondary" : "#1D2939",
-        "highlight" : "#ffbf00"
+        "highlight" : "#ffbf00",
+        "section" : "#F2EEEC"
       },
       fontWeight: {
         "medium" : "600"
