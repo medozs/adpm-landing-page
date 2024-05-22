@@ -1,4 +1,3 @@
-"use client";
 import React, { useEffect, useState } from "react";
 import { Container } from "../components/container";
 import {
@@ -325,19 +324,19 @@ export default function Home() {
             <div className="text-center">
               Building success together Our network of strategic partnerships
             </div>
-            <div className="flex flex-wrap">
-              <Image src="/partner.png" width={100} height={100} alt="" />
-              <Image src="/partner.png" width={100} height={100} alt="" />
-              <Image src="/partner.png" width={100} height={100} alt="" />
-              <Image src="/partner.png" width={100} height={100} alt="" />
-              <Image src="/partner.png" width={100} height={100} alt="" />
-              <Image src="/partner.png" width={100} height={100} alt="" />
-              <Image src="/partner.png" width={100} height={100} alt="" />
-              <Image src="/partner.png" width={100} height={100} alt="" />
-              <Image src="/partner.png" width={100} height={100} alt="" />
-              <Image src="/partner.png" width={100} height={100} alt="" />
-              <Image src="/partner.png" width={100} height={100} alt="" />
-              <Image src="/partner.png" width={100} height={100} alt="" />
+            <div className="grid grid-cols-6 gap-0">
+              <Image src="/partner.png" width={190} height={100} alt="" />
+              <Image src="/partner.png" width={190} height={100} alt="" />
+              <Image src="/partner.png" width={190} height={100} alt="" />
+              <Image src="/partner.png" width={190} height={100} alt="" />
+              <Image src="/partner.png" width={190} height={100} alt="" />
+              <Image src="/partner.png" width={190} height={100} alt="" />
+              <Image src="/partner.png" width={190} height={100} alt="" />
+              <Image src="/partner.png" width={190} height={100} alt="" />
+              <Image src="/partner.png" width={190} height={100} alt="" />
+              <Image src="/partner.png" width={190} height={100} alt="" />
+              <Image src="/partner.png" width={190} height={100} alt="" />
+              <Image src="/partner.png" width={190} height={100} alt="" />
             </div>
           </div>
         </Container>
