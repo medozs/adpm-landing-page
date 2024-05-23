@@ -29,27 +29,29 @@ export default function Home() {
   const [data4, setData4] = useState(0);
 
   useEffect(() => {
+    let showTimeout;
     if (isFull) {
-      setTimeout(() => {
-        if (show < 2) {
-          setShow(show + 1);
-        } else {
-          setShow(0);
-        }
+      showTimeout = setTimeout(() => {
+        setShow((prevShow) => (prevShow < 2 ? prevShow + 1 : 0));
       }, 8000);
     }
-  }, [isFull]);
+    return () => clearTimeout(showTimeout);
+  }, [isFull, show]);
 
   useEffect(() => {
-    setTimeout(() => {
-      setFull(!isFull);
-    }, 8000);
+    let toggleTimeout;
     if (!isFull) {
-      setTimeout(() => {
+      toggleTimeout = setTimeout(() => {
         setFull(true);
       }, 1000);
+    } else {
+      toggleTimeout = setTimeout(() => {
+        setFull(false);
+      }, 8000);
     }
-  });
+
+    return () => clearTimeout(toggleTimeout);
+  }, [isFull]);
 
   const countNum = (data, num) => {
     let startVal = num > 500 ? 500 : 0;
@@ -264,7 +266,7 @@ export default function Home() {
                   infinite={true}
                   speed={200}
                   slidesToShow={3.2}
-                  slidesToScroll={ 1}
+                  slidesToScroll={1}
                   centerMode
                   nextArrow={<SampleNextArrow />}
                   prevArrow={<SamplePrevArrow />}

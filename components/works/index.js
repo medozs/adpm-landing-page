@@ -21,7 +21,13 @@ export const Works = ({ data }) => {
         </div>
       </div>
       <div className="w-[600px]">
-            <Image width={600} height={400} src={data.img} alt="" className="object-cover object-bottom" />
+        <Image
+          width={600}
+          height={400}
+          src={data.img}
+          alt=""
+          className="object-cover object-bottom"
+        />
       </div>
     </div>
   );
