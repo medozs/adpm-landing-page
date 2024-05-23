@@ -18,6 +18,7 @@ import { Works } from "../components/works";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Slider from "react-slick";
 import Image from "next/image";
+import { useInView } from "react-intersection-observer"
 
 export default function Home() {
   const [isFull, setFull] = useState(false);
@@ -27,6 +28,16 @@ export default function Home() {
   const [data2, setData2] = useState(0);
   const [data3, setData3] = useState(0);
   const [data4, setData4] = useState(0);
+
+  const options = {
+    threshold: 1,
+    triggerOnce: true,
+  }
+  const { ref: stat, inView: statVisible } = useInView(options);
+  const { ref: about, inView: aboutVisible } = useInView(options);
+  const { ref: service, inView: serviceVisible } = useInView(options);
+  const { ref: works, inView: worksVisible } = useInView(options);
+  const { ref: partner, inView: partnerVisible } = useInView(options);
 
   useEffect(() => {
     let showTimeout;
@@ -79,7 +90,7 @@ export default function Home() {
     countNum(2, 200);
     countNum(3, 40);
     countNum(4, 1000);
-  }, []);
+  }, [statVisible]);
 
   function SampleNextArrow(props) {
     const { onClick } = props;
@@ -109,7 +120,7 @@ export default function Home() {
         {bannerData?.map((item, i) => (
           <div
             key={i}
-            className={`absolute w-full h-[750px] ${show === i ? "left-0 blur-none" : "-left-full blur-md pr-32"} overflow-hidden transition-all duration-700`}
+            className={`absolute w-full h-[750px] ${show === i ? "left-0 blur-none" : "-left-full blur-sm pr-32"} overflow-hidden transition-all duration-700`}
           >
             <Image
               src={item.image}
@@ -205,7 +216,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                <div className="flex space-x-3 text-primary">
+                <div ref={stat} className="flex space-x-3 text-primary">
                   <PeopleOutline fontSize="large" />
                   <div className="text-secondary space-y-2">
                     <div className="font-bold text-2xl">{data4}</div>
@@ -222,7 +233,7 @@ export default function Home() {
         </Container>
       </div>
       <Container>
-        <div className="py-32 flex space-x-32 items-center justify-between">
+        <div className={`py-32 flex space-x-32 items-center justify-between transition-all duration-500 ${aboutVisible ? "blur-none" : "blur-sm -translate-y-12"}`}>
           <Image
             src="/img-2.jpeg"
             alt=""
@@ -230,7 +241,7 @@ export default function Home() {
             width={1000}
             height={500}
           />
-          <div className="w-[50%] space-y-5">
+          <div ref={about} className="w-[50%] space-y-5">
             <div className="font-bold text-4xl text-right">
               We’re the future of mining industry
             </div>
@@ -247,8 +258,8 @@ export default function Home() {
       </Container>
       <div className="bg-section">
         <Container>
-          <div className="py-32 flex space-x-16">
-            <div className="w-[40%] space-y-16 border-b-2 border-black">
+          <div className={`py-32 flex space-x-16 transition-all duration-500 ${serviceVisible ? "blur-none" : "blur-sm -translate-y-12"}`}>
+            <div ref={service} className="w-[40%] space-y-16 border-b-2 border-black">
               <h2 className="font-bold text-4xl">
                 ALL YOU NEED PRODUCT & SERVICES
               </h2>
@@ -282,7 +293,7 @@ export default function Home() {
           </div>
         </Container>
       </div>
-      <div className="py-32">
+      <div ref={works} className={`py-32 transition-all duration-500 ${worksVisible ? "blur-none" : "blur-sm -translate-y-12"}`}>
         <h2 className="font-bold text-center text-4xl">OUR WORKS</h2>
         <div className="mt-20 relative">
           <SingleCarousel
@@ -319,7 +330,7 @@ export default function Home() {
       </div>
       <div className="pt-32 pb-48 bg-section">
         <Container>
-          <div className="space-y-8">
+          <div ref={partner} className={`space-y-8 transition-all duration-500 ${partnerVisible ? "blur-none" : "blur-sm -translate-y-12"}`}>
             <h2 className="font-bold text-center text-4xl">
               SOME OF OUR PARTNERSHIP
             </h2>
