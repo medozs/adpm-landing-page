@@ -18,7 +18,7 @@ import { Works } from "../components/works";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Slider from "react-slick";
 import Image from "next/image";
-import { useInView } from "react-intersection-observer"
+import { useInView } from "react-intersection-observer";
 
 export default function Home() {
   const [isFull, setFull] = useState(false);
@@ -32,7 +32,7 @@ export default function Home() {
   const options = {
     threshold: 1,
     triggerOnce: true,
-  }
+  };
   const { ref: stat, inView: statVisible } = useInView(options);
   const { ref: about, inView: aboutVisible } = useInView(options);
   const { ref: service, inView: serviceVisible } = useInView(options);
@@ -233,7 +233,9 @@ export default function Home() {
         </Container>
       </div>
       <Container>
-        <div className={`py-32 flex space-x-32 items-center justify-between transition-all duration-500 ${aboutVisible ? "blur-none" : "blur-sm -translate-y-12"}`}>
+        <div
+          className={`py-32 flex space-x-32 items-center justify-between transition-all duration-500 ${aboutVisible ? "blur-none" : "blur-sm -translate-y-12"}`}
+        >
           <Image
             src="/img-2.jpeg"
             alt=""
@@ -258,8 +260,13 @@ export default function Home() {
       </Container>
       <div className="bg-section">
         <Container>
-          <div className={`py-32 flex space-x-16 transition-all duration-500 ${serviceVisible ? "blur-none" : "blur-sm -translate-y-12"}`}>
-            <div ref={service} className="w-[40%] space-y-16 border-b-2 border-black">
+          <div
+            className={`py-32 flex space-x-16 transition-all duration-500 ${serviceVisible ? "blur-none" : "blur-sm -translate-y-12"}`}
+          >
+            <div
+              ref={service}
+              className="w-[40%] space-y-16 border-b-2 border-black"
+            >
               <h2 className="font-bold text-4xl">
                 ALL YOU NEED PRODUCT & SERVICES
               </h2>
@@ -293,7 +300,10 @@ export default function Home() {
           </div>
         </Container>
       </div>
-      <div ref={works} className={`py-32 transition-all duration-500 ${worksVisible ? "blur-none" : "blur-sm -translate-y-12"}`}>
+      <div
+        ref={works}
+        className={`py-32 transition-all duration-500 ${worksVisible ? "blur-none" : "blur-sm -translate-y-12"}`}
+      >
         <h2 className="font-bold text-center text-4xl">OUR WORKS</h2>
         <div className="mt-20 relative">
           <SingleCarousel
@@ -330,7 +340,10 @@ export default function Home() {
       </div>
       <div className="pt-32 pb-48 bg-section">
         <Container>
-          <div ref={partner} className={`space-y-8 transition-all duration-500 ${partnerVisible ? "blur-none" : "blur-sm -translate-y-12"}`}>
+          <div
+            ref={partner}
+            className={`space-y-8 transition-all duration-500 ${partnerVisible ? "blur-none" : "blur-sm -translate-y-12"}`}
+          >
             <h2 className="font-bold text-center text-4xl">
               SOME OF OUR PARTNERSHIP
             </h2>
