@@ -34,7 +34,7 @@ const NavItems = ({ isDropdown, to, title, items }) => {
       {isDropdown && isHover ? (
         <div
           onMouseLeave={() => setHover(false)}
-          className="w-64 h-auto bg-white rounded-xl shadow-xl absolute left-0 top-10 py-5 space-y-3"
+          className="w-64 h-auto bg-white rounded-xl shadow-xl border-2 absolute left-0 top-10 py-5 space-y-3"
         >
           {items.map((item, i) => (
             <div

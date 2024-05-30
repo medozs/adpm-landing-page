@@ -86,10 +86,12 @@ export default function Home() {
   };
 
   useEffect(() => {
-    countNum(1, 28);
-    countNum(2, 200);
-    countNum(3, 40);
-    countNum(4, 1000);
+    if (statVisible) {
+      countNum(1, 28);
+      countNum(2, 200);
+      countNum(3, 40);
+      countNum(4, 1000);
+    }
   }, [statVisible]);
 
   function SampleNextArrow(props) {
@@ -232,9 +234,9 @@ export default function Home() {
           </div>
         </Container>
       </div>
-      <Container>
+      <Container ref={about}>
         <div
-          className={`py-32 flex space-x-32 items-center justify-between transition-all duration-500 ${aboutVisible ? "blur-none" : "blur-sm -translate-y-12"}`}
+          className={`py-32 flex space-x-32 items-center justify-between transition-all duration-500 ${aboutVisible ? "blur-none visible" : "invisible blur-sm -translate-y-12"}`}
         >
           <Image
             src="/img-2.jpeg"
@@ -258,15 +260,12 @@ export default function Home() {
           </div>
         </div>
       </Container>
-      <div className="bg-section">
+      <div ref={service} className="bg-section">
         <Container>
           <div
-            className={`py-32 flex space-x-16 transition-all duration-500 ${serviceVisible ? "blur-none" : "blur-sm -translate-y-12"}`}
+            className={`py-32 flex space-x-16 transition-all duration-500 ${serviceVisible ? "blur-none visible" : "invisible blur-sm -translate-y-12"}`}
           >
-            <div
-              ref={service}
-              className="w-[40%] space-y-16 border-b-2 border-black"
-            >
+            <div className="w-[40%] space-y-16 border-b-2 border-black">
               <h2 className="font-bold text-4xl">
                 ALL YOU NEED PRODUCT & SERVICES
               </h2>
@@ -338,11 +337,10 @@ export default function Home() {
           </SingleCarousel>
         </div>
       </div>
-      <div className="pt-32 pb-48 bg-section">
+      <div ref={partner} className="pt-32 pb-48 bg-section">
         <Container>
           <div
-            ref={partner}
-            className={`space-y-8 transition-all duration-500 ${partnerVisible ? "blur-none" : "blur-sm -translate-y-12"}`}
+            className={`space-y-8 transition-all duration-500 ${partnerVisible ? "blur-none visible" : "invisible blur-sm -translate-y-12"}`}
           >
             <h2 className="font-bold text-center text-4xl">
               SOME OF OUR PARTNERSHIP
