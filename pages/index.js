@@ -11,7 +11,6 @@ import {
 import Button from "../components/button";
 import { ServiceCard } from "../components/card/serviceCard";
 import { bannerData, serviceList, worksList } from "../utils/dummyData";
-import { Footer } from "../components/footer/footer";
 import { ContactFooter } from "../components/footer/contactFooter";
 import { Carousel as SingleCarousel } from "react-responsive-carousel";
 import { Works } from "../components/works";
@@ -366,7 +365,6 @@ export default function Home() {
         </Container>
       </div>
       <ContactFooter />
-      <Footer />
     </>
   );
 }

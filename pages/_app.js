@@ -8,6 +8,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { Container } from "../components/container";
 import { useRouter } from "next/router";
 import Navbar from "../components/navbar";
+import { Footer } from "../components/footer/footer";
 
 const queryClient = new QueryClient();
 
@@ -37,6 +38,7 @@ const MyApp = ({ Component, pageProps: { ...pageProps } }) => {
       <Provider store={store}>
         <Navbar />
         <Component {...pageProps} />
+        <Footer />
       </Provider>
     </QueryClientProvider>
   );

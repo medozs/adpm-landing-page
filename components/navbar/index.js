@@ -2,12 +2,21 @@ import React, { useEffect, useState } from "react";
 import { menu } from "../../utils/routeList";
 import NavItems from "./navItems";
 import Button from "../button";
+import { useRouter } from "next/router";
 
 const Navbar = () => {
   const [isScrolling, setIsScrolling] = useState(false);
 
+  useEffect(() => {
+    if (window.location.pathname !== "/") {
+      setIsScrolling(true);
+    }
+  }, []);
+
   const onScroll = () => {
-    setIsScrolling(window.scrollY > 0);
+    if (route.asPath === "/") {
+      setIsScrolling(window.scrollY > 0);
+    }
   };
 
   useEffect(() => {
@@ -39,7 +48,11 @@ const Navbar = () => {
         ))}
       </div>
       <div className="w-[20%] flex justify-end">
-        <Button title="Contact Us" contained />
+        <Button
+          title="Contact Us"
+          contained
+          onClick={() => route.push("/contact")}
+        />
       </div>
     </div>
   );
