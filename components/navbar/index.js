@@ -5,6 +5,7 @@ import Button from "../button";
 import { useRouter } from "next/router";
 
 const Navbar = () => {
+  const route = useRouter()
   const [isScrolling, setIsScrolling] = useState(false);
 
   useEffect(() => {
