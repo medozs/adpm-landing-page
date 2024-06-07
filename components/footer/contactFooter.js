@@ -22,7 +22,7 @@ export const ContactFooter = () => {
           <img
             src="people.png"
             alt=""
-            className="absolute -top-[199px] right-0"
+            className="absolute -top-[145px] right-0"
           />
         </div>
       </Container>
