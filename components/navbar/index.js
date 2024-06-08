@@ -5,28 +5,20 @@ import Button from "../button";
 import { useRouter } from "next/router";
 
 const Navbar = () => {
-  const route = useRouter()
+  const route = useRouter();
   const [isScrolling, setIsScrolling] = useState(false);
 
   useEffect(() => {
-    if (window.location.pathname !== "/") {
+    if (route.asPath !== "/contact") {
+      window.addEventListener("scroll", onScroll);
+    } else {
       setIsScrolling(true);
     }
-  }, []);
+  }, [route, isScrolling]);
 
   const onScroll = () => {
-    if (route.asPath === "/") {
-      setIsScrolling(window.scrollY > 0);
-    }
+    setIsScrolling(window.scrollY > 0);
   };
-
-  useEffect(() => {
-    window.addEventListener("scroll", onScroll);
-
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-    };
-  }, []);
 
   return (
     <div
