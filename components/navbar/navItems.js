@@ -25,7 +25,7 @@ const NavItems = ({ isDropdown, to, title, items }) => {
     <div
       onClick={eventClick}
       onMouseEnter={() => setHover(true)}
-      className={`flex items-center uppercase relative border-b-2 cursor-pointer font-bold ${shouldDrawLine ? "border-red-500" : "border-transparent"}`}
+      className={`flex items-center uppercase relative border-b-2 cursor-pointer font-bold ${shouldDrawLine ? "border-primary" : "border-transparent"}`}
     >
       {title}
       <span hidden={!isDropdown}>

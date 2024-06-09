@@ -1,20 +1,14 @@
 import React from "react";
 import { Container } from "../components/container";
+import { HeroBanner } from "../components/hero";
 
 const About = () => {
   return (
     <>
-      <div className="bg-fixed h-[700px] bg-no-repeat bg-cover bg-center bg-[url('/about.jpeg')]">
-        <div className="bg-black/40 h-full">
-          <Container className="h-full">
-            <div className="flex justify-end items-center h-full">
-              <div className="text-5xl text-white font-semibold my-auto">
-                A Moments of Best Built
-              </div>
-            </div>
-          </Container>
-        </div>
-      </div>
+      <HeroBanner 
+        title="A Moments of Best Built" 
+        img="bg-[url('/about.jpeg')]"
+      />
       <Container>
         <div className="space-y-8 my-32">
           <div className="text-center w-3/5 mx-auto space-y-5">

@@ -86,3 +86,22 @@ export const worksList = [
     img: "/works1.jpeg"
   }
 ]
+
+export const serviceListLite = [
+  {
+    id: 1,
+    name: "Fire Protection System",
+  },
+  {
+    id: 2,
+    name: "Design Engineering",
+  },
+  {
+    id: 3,
+    name: "Carosserrie & Container",
+  },
+  {
+    id: 4,
+    name: "Mechanical Lifting",
+  },
+]

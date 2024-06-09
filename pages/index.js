@@ -18,8 +18,10 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Slider from "react-slick";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
+import { useRouter } from "next/router";
 
 export default function Home() {
+  const route = useRouter()
   const [isFull, setFull] = useState(false);
   const [show, setShow] = useState(0);
 
@@ -142,7 +144,7 @@ export default function Home() {
                   <div className="text-white text-xl">{item?.desc}</div>
                   <div className="flex space-x-3">
                     <Button title="Our Service" />
-                    <Button title="Contact Us" contained />
+                    <Button title="Contact Us" contained onClick={() => route.push("/contact")}/>
                   </div>
                 </div>
               </Container>
@@ -254,7 +256,7 @@ export default function Home() {
               competentcies and engineering discipline
             </div>
             <div className="flex justify-end">
-              <Button title="Contact Us" contained />
+              <Button title="Contact Us" contained onClick={() => route.push("/contact")}/>
             </div>
           </div>
         </div>

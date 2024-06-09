@@ -14,7 +14,7 @@ export const menu = [
   },
   {
     title: "Our Projects",
-    route: "/our-projects",
+    route: "/projects",
   },
   {
     title: "About",

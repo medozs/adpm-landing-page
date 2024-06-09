@@ -2,8 +2,10 @@
 import React from "react";
 import { Container } from "../container";
 import Button from "../button";
+import { useRouter } from "next/router";
 
 export const ContactFooter = () => {
+  const route = useRouter()
   return (
     <div className="py-20 bg-primary">
       <Container>
@@ -16,7 +18,7 @@ export const ContactFooter = () => {
             </div>
             <div className="font-semibold">Always Ready to Lend a Hand</div>
             <div className="flex">
-              <Button title="Contact Us" white />
+              <Button title="Contact Us" white onClick={() => route.push("/contact")}/>
             </div>
           </div>
           <img
