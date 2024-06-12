@@ -119,33 +119,31 @@ export default function Home() {
 
   return (
     <>
-      <div className="flex h-[800px] relative">
+      <div className="flex lg:aspect-video lg:h-full h-[75vh] relative">
         {bannerData?.map((item, i) => (
           <div
             key={i}
-            className={`absolute w-full h-[800px] ${show === i ? "left-0 blur-none" : "-left-full blur-sm pr-32"} overflow-hidden transition-all duration-700`}
+            className={`absolute w-full lg:h-full top-0 bottom-0 g:aspect-video h-[75vh] ${show === i ? "left-0 blur-none" : "-left-full blur-sm pr-32"} overflow-hidden transition-all duration-700`}
           >
             <Image
               src={item.image}
               alt=""
               loading="lazy"
-              width={1500}
-              height={850}
-              className={`object-cover brightness-50 w-full h-[800px] ease-linear object-bottom ${isFull ? "scale-125 transition-all duration-[8000ms] ease-linear" : ""}`}
+              width={1920}
+              height={1080}
+              className={`object-cover brightness-50 w-full g:aspect-video lg:h-full h-[75vh] ease-linear object-bottom ${isFull ? "scale-125 transition-all duration-[8000ms] ease-linear" : ""}`}
             />
-            <div className="absolute w-full h-full top-0 bottom-0 left-0 right-0 z-20 mt-64">
-              <Container>
-                <div
-                  className={`w-[60%] space-y-12 leading-none absolute z-20 ${isFull ? "left-28" : "-left-full"} transition-all duration-500`}
-                >
-                  <div className="text-white text-[54px] font-semibold">
-                    {item?.title}
-                  </div>
-                  <div className="text-white text-xl">{item?.desc}</div>
-                  <div className="flex space-x-3">
-                    <Button title="Our Service" />
-                    <Button title="Contact Us" contained onClick={() => route.push("/contact")}/>
-                  </div>
+            <div className="absolute flex top-0 bottom-0 left-0 right-0 z-20 items-center">
+              <Container
+                className={`my-auto lg:w-[60%] w-full space-y-10 absolute z-20 ${isFull ? "lg:left-28 left-0" : "-left-full"} transition-all duration-500`}
+              >
+                <div className="text-white leading-tight lg:text-[54px] text-2xl font-semibold">
+                  {item?.title}
+                </div>
+                <div className="text-white lg:text-xl text-sm">{item?.desc}</div>
+                <div className="flex lg:space-y-0 space-x-2 lg:space-x-3">
+                  <Button title="Our Service" />
+                  <Button title="Contact Us" contained onClick={() => route.push("/contact")}/>
                 </div>
               </Container>
             </div>
@@ -170,23 +168,23 @@ export default function Home() {
       </div>
       <div className="bg-section">
         <Container>
-          <div className="py-32 flex space-x-8">
-            <div className="w-[50%] space-y-16 my-auto">
-              <h2 className="font-bold text-4xl">
+          <div className="py-32 lg:flex lg:space-x-8 space-x-0 space-y-8 lg:space-y-0">
+            <div className="lg:w-[50%] lg:space-y-16 space-y-2 my-auto">
+              <h2 className="font-bold text-2xl lg:text-4xl">
                 Building Your Vision with Quality and Innovation
               </h2>
-              <p className="">
+              <p className="lg:text-base text-sm">
                 Established in 2012, Struktura has been a leading force in the
                 construction industry, specializing in commercial office
                 building construction. Our commitment to quality and innovation
                 sets us apart.
               </p>
             </div>
-            <div className="flex justify-between w-[50%] space-x-5">
-              <div className="w-[50%] space-y-5">
+            <div className="lg:flex justify-between lg:w-[50%] lg:space-x-5">
+              <div className="lg:w-[50%] space-y-5">
                 <div className="flex space-x-3 text-primary">
                   <Handyman fontSize="large" />
-                  <div className="text-secondary space-y-2">
+                  <div className="text-secondary space-y-2 lg:text-base text-sm">
                     <div className="font-bold text-2xl">{data1}</div>
                     <div className="font-bold">Project Completed</div>
                     <div>
@@ -197,7 +195,7 @@ export default function Home() {
                 </div>
                 <div className="flex space-x-3 text-primary">
                   <SentimentSatisfiedAlt fontSize="large" />
-                  <div className="text-secondary space-y-2">
+                  <div className="text-secondary space-y-2 lg:text-base text-sm">
                     <div className="font-bold text-2xl">{data2}</div>
                     <div className="font-bold">Happy Customer</div>
                     <div>
@@ -207,10 +205,10 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="w-[50%] space-y-5">
+              <div className="lg:w-[50%] space-y-5">
                 <div className="flex space-x-3 text-primary">
                   <DrawOutlined fontSize="large" />
-                  <div className="text-secondary space-y-2">
+                  <div className="text-secondary space-y-2 lg:text-base text-sm">
                     <div className="font-bold text-2xl">{data3}</div>
                     <div className="font-bold">Design Services</div>
                     <div>
@@ -221,7 +219,7 @@ export default function Home() {
                 </div>
                 <div ref={stat} className="flex space-x-3 text-primary">
                   <PeopleOutline fontSize="large" />
-                  <div className="text-secondary space-y-2">
+                  <div className="text-secondary space-y-2 lg:text-base text-sm">
                     <div className="font-bold text-2xl">{data4}</div>
                     <div className="font-bold">Worker Employed</div>
                     <div>
@@ -237,20 +235,20 @@ export default function Home() {
       </div>
       <Container ref={about}>
         <div
-          className={`py-32 flex space-x-32 items-center justify-between transition-all duration-500 ${aboutVisible ? "blur-none visible" : "invisible blur-sm -translate-y-12"}`}
+          className={`py-32 lg:flex lg:space-x-32 space-x-0 space-y-5 lg:space-y-0 items-center justify-between transition-all duration-500 ${aboutVisible ? "blur-none visible" : "invisible blur-sm -translate-y-12"}`}
         >
           <Image
             src="/img-2.jpeg"
             alt=""
-            className="w-[50%] h-[500px] object-cover object-bottom"
+            className="lg:w-[50%] aspect-square lg:h-[500px] object-cover object-bottom"
             width={1000}
             height={500}
           />
-          <div ref={about} className="w-[50%] space-y-5">
-            <div className="font-bold text-4xl text-right">
+          <div ref={about} className="lg:w-[50%] space-y-5">
+            <div className="font-bold text-2xl lg:text-4xl text-right">
               We’re the future of mining industry
             </div>
-            <div className="text-right">
+            <div className="text-right lg:text-base text-sm">
               We ensure all services and products had certified quality,
               fabricated and handled with dedicated manpower in their respective
               competentcies and engineering discipline
@@ -264,13 +262,13 @@ export default function Home() {
       <div ref={service} className="bg-section">
         <Container>
           <div
-            className={`py-32 flex space-x-16 transition-all duration-500 ${serviceVisible ? "blur-none visible" : "invisible blur-sm -translate-y-12"}`}
+            className={`py-32 lg:flex lg:space-x-16 transition-all duration-500 ${serviceVisible ? "blur-none visible" : "invisible blur-sm -translate-y-12"}`}
           >
-            <div className="w-[40%] space-y-16 border-b-2 border-black">
-              <h2 className="font-bold text-4xl">
-                ALL YOU NEED PRODUCT & SERVICES
+            <div className="lg:w-[40%] lg:space-y-16 space-y-6 border-b-2 border-black">
+              <h2 className="font-bold text-2xl lg:text-4xl">
+                All you need product & service
               </h2>
-              <p className="">
+              <p className="text-sm lg:text-base">
                 Simplify your industrial journey with ease. All You Need
                 Products & Services empowers you to achieve operational success.
               </p>
@@ -278,7 +276,7 @@ export default function Home() {
                 <Button title="SEE ALL" contained />
               </div>
             </div>
-            <div className="w-[60%]">
+            <div className="lg:w-[60%] hidden lg:block">
               <div className="relative">
                 <Slider
                   infinite={true}
@@ -296,16 +294,23 @@ export default function Home() {
                   ))}
                 </Slider>
               </div>
+              <div className="lg:hidden flex space-x-2">
+                {serviceList?.map((item, i) => (
+                  <div key={i} className="mt-20">
+                    <ServiceCard img={item.thumb} title={item.title} />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </Container>
       </div>
       <div
         ref={works}
-        className={`py-32 transition-all duration-500 ${worksVisible ? "blur-none" : "blur-sm -translate-y-12"}`}
+        className={`lg:py-32 pt-16 transition-all duration-500 ${worksVisible ? "blur-none" : "blur-sm -translate-y-12"}`}
       >
-        <h2 className="font-bold text-center text-4xl">OUR WORKS</h2>
-        <div className="mt-20 relative">
+        <h2 className="font-bold text-center text-2xl lg:text-4xl">OUR WORKS</h2>
+        <div className="mt-20 relative hidden lg:block">
           <SingleCarousel
             autoPlay
             infiniteLoop
@@ -337,19 +342,24 @@ export default function Home() {
             ))}
           </SingleCarousel>
         </div>
+        <Container className="lg:hidden flex space-x-8 overflow-x-auto pb-8">
+          {worksList.map((item, i) => (
+            <Works key={i} data={item} />
+          ))}
+        </Container>
       </div>
       <div ref={partner} className="pt-32 pb-48 bg-section">
         <Container>
           <div
             className={`space-y-8 transition-all duration-500 ${partnerVisible ? "blur-none visible" : "invisible blur-sm -translate-y-12"}`}
           >
-            <h2 className="font-bold text-center text-4xl">
+            <h2 className="font-bold text-center text2-xl lg:text-4xl">
               SOME OF OUR PARTNERSHIP
             </h2>
-            <div className="text-center">
+            <div className="text-center text-sm lg:text-base">
               Building success together Our network of strategic partnerships
             </div>
-            <div className="grid grid-cols-6 gap-0">
+            <div className="grid lg:grid-cols-6 grid-cols-3 gap-0">
               <Image src="/partner.png" width={190} height={100} alt="" />
               <Image src="/partner.png" width={190} height={100} alt="" />
               <Image src="/partner.png" width={190} height={100} alt="" />

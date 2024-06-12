@@ -7,16 +7,16 @@ import { useRouter } from "next/router";
 export const ContactFooter = () => {
   const route = useRouter()
   return (
-    <div className="py-20 bg-primary">
+    <div className="py-20 bg-primary lg:overflow-visible overflow-hidden">
       <Container>
         <div className="flex w-full relative justify-between">
-          <div className="space-y-10 w-[70%] my-auto">
-            <div className="text-5xl font-bold">
+          <div className="lg:space-y-10 space-y-3 lg:w-[70%] my-auto">
+            <div className="text-2xl lg:text-5xl font-bold">
               Smart Business <br />
               Growth Starts Here. <br />
               Take the First Step!
             </div>
-            <div className="font-semibold">Always Ready to Lend a Hand</div>
+            <div className="font-semibold text-sm lg:text-base">Always Ready to Lend a Hand</div>
             <div className="flex">
               <Button title="Contact Us" white onClick={() => route.push("/contact")}/>
             </div>
@@ -24,7 +24,7 @@ export const ContactFooter = () => {
           <img
             src="people.png"
             alt=""
-            className="absolute -top-[145px] right-0"
+            className="absolute lg:-top-[145px] -bottom-[150px] lg:right-0 -right-36"
           />
         </div>
       </Container>
