@@ -5,7 +5,7 @@ import Button from "../button";
 import { useRouter } from "next/router";
 
 export const ContactFooter = () => {
-  const route = useRouter()
+  const route = useRouter();
   return (
     <div className="py-20 bg-primary lg:overflow-visible overflow-hidden">
       <Container>
@@ -16,9 +16,15 @@ export const ContactFooter = () => {
               Growth Starts Here. <br />
               Take the First Step!
             </div>
-            <div className="font-semibold text-sm lg:text-base">Always Ready to Lend a Hand</div>
+            <div className="font-semibold text-sm lg:text-base">
+              Always Ready to Lend a Hand
+            </div>
             <div className="flex">
-              <Button title="Contact Us" white onClick={() => route.push("/contact")}/>
+              <Button
+                title="Contact Us"
+                white
+                onClick={() => route.push("/contact")}
+              />
             </div>
           </div>
           <img

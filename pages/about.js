@@ -5,14 +5,16 @@ import { HeroBanner } from "../components/hero";
 const About = () => {
   return (
     <>
-      <HeroBanner 
-        title="A Moments of Best Built" 
+      <HeroBanner
+        title="A Moments of Best Built"
         img="bg-[url('/about.jpeg')]"
       />
       <Container>
         <div className="space-y-8 my-32">
           <div className="text-center lg:w-3/5 mx-auto space-y-5">
-            <div className="font-bold text-2xl lg:text-4xl">COMPANY COMITMENT</div>
+            <div className="font-bold text-2xl lg:text-4xl">
+              COMPANY COMITMENT
+            </div>
             <div className="text-sm lg:text-base">
               ADPM prioritizing safety and professionalism into business core,
               aspect. We always make sure to fulfill all safety and business
@@ -34,21 +36,27 @@ const About = () => {
             </div>
           </div>
           <div className="lg:flex justify-between mx-auto">
-            <div className="block lg:hidden text-2xl lg:text-4xl font-bold text-right">OUR MISSION</div>
+            <div className="block lg:hidden text-2xl lg:text-4xl font-bold text-right">
+              OUR MISSION
+            </div>
             <div className="lg:w-[50%] text-sm lg:text-base lg:text-left text-right">
               To be the premier and trusted provider of mechanical and
               manufacturing services to the mining industry, recognized for our
               innovation, expertise, and commitment to safety, making a positive
               impact on our customers and the environment.
             </div>
-            <div className="lg:block hidden text-2xl lg:text-4xl font-bold">OUR MISSION</div>
+            <div className="lg:block hidden text-2xl lg:text-4xl font-bold">
+              OUR MISSION
+            </div>
           </div>
         </Container>
       </div>
       <Container>
         <div className="space-y-24 my-32">
           <div className="text-center max-w-[600px] mx-auto space-y-5">
-            <div className="font-bold text-2xl lg:text-4xl">COMPANY DOCUMENTS</div>
+            <div className="font-bold text-2xl lg:text-4xl">
+              COMPANY DOCUMENTS
+            </div>
             <div className="text-sm lg:text-base">
               {
                 "Transparency builds trust. That's why we offer easy access to company documents, fostering informed decisions and ethical business practices."

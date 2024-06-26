@@ -55,6 +55,7 @@ export const worksList = [
     title: "Mechanical Lifting Project",
     client: "Bartha",
     location: "Jakarta",
+    scope: "-",
     img: "/works1.jpeg"
   },
   {
@@ -62,6 +63,7 @@ export const worksList = [
     title: "Mechanical Lifting Project",
     client: "Bartha",
     location: "Jakarta",
+    scope: "-",
     img: "/banner-1.png"
   },
   {
@@ -69,6 +71,7 @@ export const worksList = [
     title: "Mechanical Lifting Project",
     client: "Bartha",
     location: "Jakarta",
+    scope: "-",
     img: "/works1.jpeg"
   },
   {
@@ -76,6 +79,7 @@ export const worksList = [
     title: "Mechanical Lifting Project",
     client: "Bartha",
     location: "Jakarta",
+    scope: "-",
     img: "/banner-2.jpg"
   },
   {
@@ -83,6 +87,7 @@ export const worksList = [
     title: "Mechanical Lifting Project",
     client: "Bartha",
     location: "Jakarta",
+    scope: "-",
     img: "/works1.jpeg"
   }
 ]

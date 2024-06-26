@@ -21,7 +21,7 @@ import { useInView } from "react-intersection-observer";
 import { useRouter } from "next/router";
 
 export default function Home() {
-  const route = useRouter()
+  const route = useRouter();
   const [isFull, setFull] = useState(false);
   const [show, setShow] = useState(0);
 
@@ -140,10 +140,16 @@ export default function Home() {
                 <div className="text-white leading-tight lg:text-[54px] text-2xl font-semibold">
                   {item?.title}
                 </div>
-                <div className="text-white lg:text-xl text-sm">{item?.desc}</div>
+                <div className="text-white lg:text-xl text-sm">
+                  {item?.desc}
+                </div>
                 <div className="flex lg:space-y-0 space-x-2 lg:space-x-3">
                   <Button title="Our Service" />
-                  <Button title="Contact Us" contained onClick={() => route.push("/contact")}/>
+                  <Button
+                    title="Contact Us"
+                    contained
+                    onClick={() => route.push("/contact")}
+                  />
                 </div>
               </Container>
             </div>
@@ -254,7 +260,11 @@ export default function Home() {
               competentcies and engineering discipline
             </div>
             <div className="flex justify-end">
-              <Button title="Contact Us" contained onClick={() => route.push("/contact")}/>
+              <Button
+                title="Contact Us"
+                contained
+                onClick={() => route.push("/contact")}
+              />
             </div>
           </div>
         </div>
@@ -309,7 +319,9 @@ export default function Home() {
         ref={works}
         className={`lg:py-32 pt-16 transition-all duration-500 ${worksVisible ? "blur-none" : "blur-sm -translate-y-12"}`}
       >
-        <h2 className="font-bold text-center text-2xl lg:text-4xl">OUR WORKS</h2>
+        <h2 className="font-bold text-center text-2xl lg:text-4xl">
+          OUR WORKS
+        </h2>
         <div className="mt-20 relative hidden lg:block">
           <SingleCarousel
             autoPlay
