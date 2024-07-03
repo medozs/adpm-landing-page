@@ -12,10 +12,11 @@ export  const IS_PRODUCTION = eq(process.env.NODE_ENV, "production")
 export const IS_DEVELOPMENT = !IS_PRODUCTION
 
 export const API_HOST = process.env.NEXT_PUBLIC_API_HOST
+export const baseURL = `https://${API_HOST}`
 
 // const stage = IS_DEVELOPMENT ? process.env.NEXT_PUBLIC_STAGING_DEV : process.env.NEXT_PUBLIC_STAGING_PROD
 
-axiosFetch.defaults.baseURL = `http://${API_HOST}`
+axiosFetch.defaults.baseURL = baseURL
 // axiosFetch.defaults.headers.common["Authorization"] = "Bearer " + getToken()
 // axiosFetch.defaults.auth = {
 //  username: process.env.NEXT_PUBLIC_BASIC_AUTH || "123",
@@ -25,14 +26,20 @@ axiosFetch.defaults.baseURL = `http://${API_HOST}`
 axiosFetch.interceptors.request.use(function (config) {
   // Do something before request is sent
   if (
-    config.url === "/admin/v1/login" ||
-    config.url === "/admin/v1/register" ||
+    config.url === "/auth/login" ||
     config.headers["x-request-id"] === "basic") {
     config.auth = {
-      username: process.env.NEXT_PUBLIC_BASIC_AUTH_USERNAME || "asia",
+      username: process.env.NEXT_PUBLIC_BASIC_AUTH_USERNAME || "china",
       password: process.env.NEXT_PUBLIC_BASIC_AUTH_PASSWORD || "ZmRha2poZmFza3VkaGZzOktBSHNqZGtsc2FqZmRxaW9mbnNha2xkbjEyMjMxMg"
-     }
-
+    }
+    config.headers = {
+      ...config.headers,
+      'cache-control': 'ignore-cache',
+      'Access-Control-Allow-Origin': '',
+      'Access-Control-Allow-Credentials': 'true',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, PATCH, POST, DELETE, OPTIONS',
+      'Content-Type': 'application/json',
+    }
     return config
   }
 
@@ -43,7 +50,11 @@ axiosFetch.interceptors.request.use(function (config) {
   config.headers = {
     ...config.headers,
     Authorization: "Bearer " + getToken(),
-    'cache-control': 'ignore-cache',
+      'cache-control': 'ignore-cache',
+      'Access-Control-Allow-Origin': '',
+      'Access-Control-Allow-Credentials': 'true',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, PATCH, POST, DELETE, OPTIONS',
+      'Content-Type': 'application/json',
   }
   return config
 
@@ -59,9 +70,7 @@ axiosFetch.interceptors.response.use((response) => {
   if (error.response.status === 401) {
     if (typeof window !== "undefined") {
       if (
-        window.location.pathname !== "/login" &&
-        window.location.pathname !== "/forgot-password" &&
-        window.location.pathname !== "/reset"
+        window.location.pathname !== "/login"
       ) {
         window.location.href = "/login",
         clearCookie("accessToken_admin")
@@ -74,8 +83,7 @@ axiosFetch.interceptors.response.use((response) => {
 export const axios = axiosFetch
 
 export const getBasePath = (service) => {
-  const version = "v1"
-  return `/${service}/${version}/`
+  return `/${service}/`
 }
 
 export const serviceURL = (service, path) => {

@@ -13,26 +13,6 @@ import { Footer } from "../components/footer/footer";
 const queryClient = new QueryClient();
 
 const MyApp = ({ Component, pageProps: { ...pageProps } }) => {
-  const [mobileNav, setMobileNav] = useState(false);
-  const handleShow = () => {
-    setMobileNav(true);
-  };
-
-  const [auth, setAuth] = useState(false);
-  const { pathname } = useRouter();
-
-  useEffect(() => {
-    if (
-      pathname === "/login" ||
-      pathname === "/forgot-password" ||
-      pathname === "/reset"
-    ) {
-      setAuth(false);
-    } else {
-      setAuth(true);
-    }
-  }, [pathname]);
-
   return (
     <QueryClientProvider client={queryClient}>
       <Provider store={store}>

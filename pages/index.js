@@ -19,6 +19,7 @@ import Slider from "react-slick";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 import { useRouter } from "next/router";
+import { useHero } from "../hooks/api/home";
 
 export default function Home() {
   const route = useRouter();
@@ -29,6 +30,9 @@ export default function Home() {
   const [data2, setData2] = useState(0);
   const [data3, setData3] = useState(0);
   const [data4, setData4] = useState(0);
+
+  const banner = useHero()
+  const bannerDataapi = banner?.data?.data?.data
 
   const options = {
     threshold: 1,

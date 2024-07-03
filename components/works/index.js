@@ -17,7 +17,7 @@ export const Works = ({ data }) => {
         </div>
         <div className="flex-grow" />
         <div className="lg:flex hidden hover:scale-110 transition-all duration-500 cursor-pointer text-sm lg:text-base">
-          <div className="px-5 items-center flex bg-slate-200">View Detail</div>
+          <div className="px-5 items-center flex bg-slate-200">View All</div>
           <div className="bg-primary flex items-center p-2">
             <ArrowForward className="mx-auto" />
           </div>
@@ -34,7 +34,7 @@ export const Works = ({ data }) => {
       </div>
       <div className="lg:hidden flex hover:scale-110 transition-all duration-500 cursor-pointer text-xs lg:text-base">
         <div className="px-5 items-center flex bg-slate-200 font-bold">
-          View Detail
+          View All
         </div>
         <div className="bg-primary flex items-center lg:p-2 p-1">
           <ArrowForward className="mx-auto" />
