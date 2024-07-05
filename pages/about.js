@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container } from "../components/container";
 import { HeroBanner } from "../components/hero";
+import { useDocument } from "../hooks/api/home";
+import { baseURL } from "../utils";
 
 const About = () => {
+  const [selected, setSelected] = useState()
+  const document = useDocument()
+  const documentData = document?.data?.data?.data
   return (
     <>
       <HeroBanner
@@ -65,11 +70,13 @@ const About = () => {
           </div>
           <div className="lg:flex space-y-6 lg:space-y-0 justify-between">
             <div className="h-full lg:w-1/3 space-y-2 lg:space-y-8 font-semibold text-sm lg:text-lg">
-              <div>Surat Keputusan Pendirian Perseroan</div>
-              <div>Nomor Induk Berusaha (NIB)</div>
-              <div>Surat Pengukuhan Pengusaha Kena Pajak</div>
+              {documentData?.map((item, i) => (
+                <div className={selected == item.name ? "bg-primary px-3 ml-5 transition-all duration-300" : "bg-transparent px-3 transition-all duration-300"} onClick={() => setSelected(item.name)} key={i}>{item.name}</div>
+              ))}
             </div>
-            <div className="bg-slate-100 h-[500px] lg:w-1/3"></div>
+            {documentData?.map((item, i) => (
+              <img hidden={selected !== item.name} src={baseURL + item.documentUrl} className="h-[500px]" />
+            ))}
           </div>
         </div>
       </Container>
