@@ -3,9 +3,12 @@ import React from "react";
 import { Container } from "../container";
 import { menu } from "../../utils/routeList";
 import { useRouter } from "next/router";
+import { useSocmed } from "../../hooks/api/home";
 
 export const Footer = () => {
   const { push } = useRouter();
+  const socmed = useSocmed()
+  const socmedData = socmed?.data?.data?.data
   return (
     <div className="lg:pt-32 pt-16 pb-8 px-10 bg-footer text-white">
       <div className="lg:flex space-y-6 lg:space-y-0 justify-between">
@@ -43,9 +46,15 @@ export const Footer = () => {
             <div>Faksimile : +62 123 456 789</div>
           </div>
           <div className="flex space-x-3 border-t-[1px] border-white pt-4">
-            <Facebook className="lg:w-8 lg:h-8 h-4 w-4" />
-            <Instagram className="lg:w-8 lg:h-8 h-4 w-4" />
-            <X className="lg:w-8 lg:h-8 h-4 w-4" />
+            {socmedData?.filter(item => item.name == "facebook")?.map((item, i) => (
+              <Facebook className="lg:w-8 lg:h-8 h-4 w-4" />
+            ))}
+            {socmedData?.filter(item => item.name == "instagram")?.map((item, i) => (
+              <Instagram className="lg:w-8 lg:h-8 h-4 w-4" />
+            ))}
+            {socmedData?.filter(item => item.name == "twitter")?.map((item, i) => (
+              <X className="lg:w-8 lg:h-8 h-4 w-4" />
+            ))}
           </div>
         </div>
       </div>
