@@ -354,7 +354,7 @@ export default function Home() {
               return (
                 <ArrowBack
                   fontSize="large"
-                  className="hover:scale-150 scale-125 absolute top-32 left-32 z-30 shadow-md hover:shadow-lg shadow-black bg-primary p-2 transition-all duration-500 ease-in-out cursor-pointer"
+                  className="hover:scale-150 scale-125 absolute top-40 left-32 z-30 shadow-md hover:shadow-lg shadow-black bg-primary p-2 transition-all duration-500 ease-in-out cursor-pointer"
                   onClick={clickHandler}
                 />
               );
@@ -363,7 +363,7 @@ export default function Home() {
               return (
                 <ArrowForward
                   fontSize="large"
-                  className="hover:scale-150 scale-125 absolute top-32 right-32 z-30 shadow-md hover:shadow-lg shadow-black bg-primary p-2 transition-all duration-500 ease-in-out cursor-pointer"
+                  className="hover:scale-150 scale-125 absolute top-40 right-32 z-30 shadow-md hover:shadow-lg shadow-black bg-primary p-2 transition-all duration-500 ease-in-out cursor-pointer"
                   onClick={clickHandler}
                 />
               );

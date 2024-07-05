@@ -4,13 +4,18 @@ import { Container } from "../../components/container";
 import { ContactFooter } from "../../components/footer/contactFooter";
 import { ProjectCard } from "../../components/card/projectCard";
 import { serviceListLite } from "../../utils/dummyData";
-import { useProduct, useProjectByProduct } from "../../hooks/api/home";
+import { useProduct, useProject, useProjectByProduct } from "../../hooks/api/home";
 import { baseURL } from "../../utils";
 
 const Projects = () => {
   const product = useProduct()
   const productData = product?.data?.data?.data
-  const [isSelected, setSelected] = useState({ id: 4, isSelect: true });
+
+  const [isSelected, setSelected] = useState({ id: 0, isSelect: true });
+
+  const projectAll = useProject({enabled: isSelected.id == 0})
+  const projectAllData = projectAll?.data?.data?.data
+
   const project = useProjectByProduct({}, isSelected.id)
   const projectData = project?.data?.data?.data
 
@@ -41,17 +46,31 @@ const Projects = () => {
               >
                 {item.name}
               </div>
-            ))}
+              ))
+            }
           </div>
           <div className="grid grid-cols-3 gap-8">
-            {projectData?.map((item, i) => (
-              <ProjectCard
-                img={baseURL + item.imageUrl}
-                client={item.client}
-                scope={item.scope}
-                location={item.location}
-              />
-            ))}
+            {isSelected.id == 0 ? 
+              projectAllData?.map((item, i) => (
+                <ProjectCard
+                  key={i}
+                  img={baseURL + item.imageUrl}
+                  client={item.client}
+                  scope={item.scope}
+                  location={item.location}
+                />
+              ))
+            : 
+              projectData?.map((item, i) => (
+                <ProjectCard
+                  key={i}
+                  img={baseURL + item.imageUrl}
+                  client={item.client}
+                  scope={item.scope}
+                  location={item.location}
+                />
+              ))
+            }
           </div>
         </div>
       </Container>
