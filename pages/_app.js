@@ -9,6 +9,7 @@ import { Container } from "../components/container";
 import { useRouter } from "next/router";
 import Navbar from "../components/navbar";
 import { Footer } from "../components/footer/footer";
+import { AuthProvider } from "../hooks/api/auth";
 
 const queryClient = new QueryClient();
 

@@ -1,11 +1,12 @@
 import { ArrowForward } from "@mui/icons-material";
 import Image from "next/image";
 import React from "react";
+import { baseURL } from "../../utils";
 
 export const Works = ({ data }) => {
   return (
-    <div className="lg:flex lg:space-x-20 lg:h-80 justify-center">
-      <div className="flex flex-col my-12">
+    <div className="lg:flex lg:space-x-20 lg:h-96 justify-center px-24">
+      <div className="flex flex-col my-20 lg:w-1/2 aspect-video">
         <div className="text-md font-bold lg:text-3xl text-left">
           {data.title}
         </div>
@@ -23,13 +24,11 @@ export const Works = ({ data }) => {
           </div>
         </div>
       </div>
-      <div className="lg:w-[600px] w-[270px]">
-        <Image
-          width={600}
-          height={400}
-          src={data.img}
+      <div className="lg:w-1/2 lg:aspect-video">
+        <img
+          src={baseURL + data.imageUrl}
           alt=""
-          className="object-cover object-bottom lg:aspect-video aspect-square"
+          className="object-cover object-bottom lg:aspect-auto h-full aspect-square"
         />
       </div>
       <div className="lg:hidden flex hover:scale-110 transition-all duration-500 cursor-pointer text-xs lg:text-base">

@@ -12,7 +12,9 @@ export  const IS_PRODUCTION = eq(process.env.NODE_ENV, "production")
 export const IS_DEVELOPMENT = !IS_PRODUCTION
 
 export const API_HOST = process.env.NEXT_PUBLIC_API_HOST
+export const API_HOSTNAME = process.env.NEXT_PUBLIC_API_HOSTNAME
 export const baseURL = `https://${API_HOST}`
+export const baseURLName = `https://${API_HOSTNAME}`
 
 // const stage = IS_DEVELOPMENT ? process.env.NEXT_PUBLIC_STAGING_DEV : process.env.NEXT_PUBLIC_STAGING_PROD
 
@@ -51,7 +53,7 @@ axiosFetch.interceptors.request.use(function (config) {
     ...config.headers,
     Authorization: "Bearer " + getToken(),
       'cache-control': 'ignore-cache',
-      'Access-Control-Allow-Origin': '',
+      'Access-Control-Allow-Origin': 'true',
       'Access-Control-Allow-Credentials': 'true',
       'Access-Control-Allow-Methods': 'GET, POST, PUT, PATCH, POST, DELETE, OPTIONS',
       'Content-Type': 'application/json',

@@ -3,13 +3,13 @@ import React from "react";
 
 export const ServiceCard = ({ img, title }) => {
   return (
-    <div className="relative w-48 h-72 cursor-pointer">
+    <div className="relative w-auto h-96 cursor-pointer">
       <img
         src={img}
         alt=""
-        className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all"
+        className="w-full brightness-75 h-full object-cover grayscale hover:grayscale-0 transition-all"
       />
-      <div className="absolute bottom-2 left-2 text-white text-xl font-bold">
+      <div className="absolute z-20 bottom-4 left-4 text-white text-2xl font-bold">
         {title}
       </div>
     </div>

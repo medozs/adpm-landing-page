@@ -3,8 +3,11 @@ import { menu } from "../../utils/routeList";
 import NavItems from "./navItems";
 import Button from "../button";
 import { useRouter } from "next/router";
+import { useProduct } from "../../hooks/api/home";
 
 const Navbar = () => {
+  const product = useProduct()
+  const productData = product?.data?.data?.data
   const route = useRouter();
   const [isScrolling, setIsScrolling] = useState(false);
 
@@ -36,7 +39,7 @@ const Navbar = () => {
             title={item.title}
             to={item.route}
             isDropdown={item?.items?.length}
-            items={item?.items}
+            items={productData}
           />
         ))}
       </div>

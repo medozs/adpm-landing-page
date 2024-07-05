@@ -10,7 +10,6 @@ import {
 } from "@mui/icons-material";
 import Button from "../components/button";
 import { ServiceCard } from "../components/card/serviceCard";
-import { bannerData, serviceList, worksList } from "../utils/dummyData";
 import { ContactFooter } from "../components/footer/contactFooter";
 import { Carousel as SingleCarousel } from "react-responsive-carousel";
 import { Works } from "../components/works";
@@ -19,7 +18,8 @@ import Slider from "react-slick";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 import { useRouter } from "next/router";
-import { useHero } from "../hooks/api/home";
+import { useHero, usePartner, useProduct, useProject, useStatistic } from "../hooks/api/home";
+import { baseURL } from "../utils";
 
 export default function Home() {
   const route = useRouter();
@@ -32,7 +32,19 @@ export default function Home() {
   const [data4, setData4] = useState(0);
 
   const banner = useHero()
-  const bannerDataapi = banner?.data?.data?.data
+  const bannerData = banner?.data?.data?.data
+
+  const statistic = useStatistic()
+  const statisticData = statistic?.data?.data?.data
+
+  const product = useProduct()
+  const productData = product?.data?.data?.data
+
+  const project = useProject()
+  const projectData = project?.data?.data?.data
+
+  const partner = usePartner()
+  const partnerData = partner?.data?.data?.data
 
   const options = {
     threshold: 1,
@@ -42,7 +54,7 @@ export default function Home() {
   const { ref: about, inView: aboutVisible } = useInView(options);
   const { ref: service, inView: serviceVisible } = useInView(options);
   const { ref: works, inView: worksVisible } = useInView(options);
-  const { ref: partner, inView: partnerVisible } = useInView(options);
+  const { ref: partnerVis, inView: partnerVisible } = useInView(options);
 
   useEffect(() => {
     let showTimeout;
@@ -129,8 +141,8 @@ export default function Home() {
             key={i}
             className={`absolute w-full lg:h-full top-0 bottom-0 g:aspect-video h-[75vh] ${show === i ? "left-0 blur-none" : "-left-full blur-sm pr-32"} overflow-hidden transition-all duration-700`}
           >
-            <Image
-              src={item.image}
+            <img
+              src={baseURL + item?.imageUrl}
               alt=""
               loading="lazy"
               width={1920}
@@ -192,18 +204,19 @@ export default function Home() {
             </div>
             <div className="lg:flex justify-between lg:w-[50%] lg:space-x-5">
               <div className="lg:w-[50%] space-y-5">
-                <div className="flex space-x-3 text-primary">
-                  <Handyman fontSize="large" />
-                  <div className="text-secondary space-y-2 lg:text-base text-sm">
-                    <div className="font-bold text-2xl">{data1}</div>
-                    <div className="font-bold">Project Completed</div>
-                    <div>
-                      Our customer trust us again and again to manage their most
-                      important building construct
+                {statisticData?.slice(0, 2)?.map((item, i) => (
+                  <div key={i} className="flex space-x-3 text-primary">
+                    <Handyman fontSize="large" />
+                    <div className="text-secondary space-y-2 lg:text-base text-sm">
+                      <div className="font-bold text-2xl">{item.count}</div>
+                      <div className="font-bold">{item.title}</div>
+                      <div>
+                        {item.desc}
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="flex space-x-3 text-primary">
+                ))}
+                {/* <div className="flex space-x-3 text-primary">
                   <SentimentSatisfiedAlt fontSize="large" />
                   <div className="text-secondary space-y-2 lg:text-base text-sm">
                     <div className="font-bold text-2xl">{data2}</div>
@@ -213,21 +226,23 @@ export default function Home() {
                       important building construct
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
               <div className="lg:w-[50%] space-y-5">
-                <div className="flex space-x-3 text-primary">
-                  <DrawOutlined fontSize="large" />
-                  <div className="text-secondary space-y-2 lg:text-base text-sm">
-                    <div className="font-bold text-2xl">{data3}</div>
-                    <div className="font-bold">Design Services</div>
-                    <div>
-                      Our customer trust us again and again to manage their most
-                      important building construct
+                {statisticData?.slice(2, 4)?.map((item, i) => (
+
+                  <div key={i} className="flex space-x-3 text-primary">
+                    <DrawOutlined fontSize="large" />
+                    <div className="text-secondary space-y-2 lg:text-base text-sm">
+                      <div className="font-bold text-2xl">{item.count}</div>
+                      <div className="font-bold">{item.title}</div>
+                      <div>
+                        {item.desc}
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div ref={stat} className="flex space-x-3 text-primary">
+                ))}
+                {/* <div ref={stat} className="flex space-x-3 text-primary">
                   <PeopleOutline fontSize="large" />
                   <div className="text-secondary space-y-2 lg:text-base text-sm">
                     <div className="font-bold text-2xl">{data4}</div>
@@ -237,7 +252,7 @@ export default function Home() {
                       important building construct
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -247,7 +262,7 @@ export default function Home() {
         <div
           className={`py-32 lg:flex lg:space-x-32 space-x-0 space-y-5 lg:space-y-0 items-center justify-between transition-all duration-500 ${aboutVisible ? "blur-none visible" : "invisible blur-sm -translate-y-12"}`}
         >
-          <Image
+          <img
             src="/img-2.jpeg"
             alt=""
             className="lg:w-[50%] aspect-square lg:h-[500px] object-cover object-bottom"
@@ -295,23 +310,23 @@ export default function Home() {
                 <Slider
                   infinite={true}
                   speed={200}
-                  slidesToShow={3.2}
+                  slidesToShow={2.172}
                   slidesToScroll={1}
                   centerMode
                   nextArrow={<SampleNextArrow />}
                   prevArrow={<SamplePrevArrow />}
                 >
-                  {serviceList?.map((item, i) => (
+                  {productData?.map((item, i) => (
                     <div key={i} className="mt-20">
-                      <ServiceCard img={item.thumb} title={item.title} />
+                      <ServiceCard img={baseURL + item.imageUrl} title={item.name} />
                     </div>
                   ))}
                 </Slider>
               </div>
               <div className="lg:hidden flex space-x-2">
-                {serviceList?.map((item, i) => (
+                {productData?.map((item, i) => (
                   <div key={i} className="mt-20">
-                    <ServiceCard img={item.thumb} title={item.title} />
+                    <ServiceCard img={baseURL + item.imageUrl} title={item.name} />
                   </div>
                 ))}
               </div>
@@ -333,6 +348,7 @@ export default function Home() {
             showStatus={false}
             showArrows={false}
             centerMode
+            showIndicators={false}
             transitionTime={300}
             renderArrowPrev={(clickHandler) => {
               return (
@@ -353,18 +369,18 @@ export default function Home() {
               );
             }}
           >
-            {worksList.map((item, i) => (
+            {projectData?.map((item, i) => (
               <Works key={i} data={item} />
             ))}
           </SingleCarousel>
         </div>
         <Container className="lg:hidden flex space-x-8 overflow-x-auto pb-8">
-          {worksList.map((item, i) => (
+          {projectData?.map((item, i) => (
             <Works key={i} data={item} />
           ))}
         </Container>
       </div>
-      <div ref={partner} className="pt-32 pb-48 bg-section">
+      <div ref={partnerVis} className="pt-32 pb-48 bg-section">
         <Container>
           <div
             className={`space-y-8 transition-all duration-500 ${partnerVisible ? "blur-none visible" : "invisible blur-sm -translate-y-12"}`}
@@ -375,19 +391,12 @@ export default function Home() {
             <div className="text-center text-sm lg:text-base">
               Building success together Our network of strategic partnerships
             </div>
-            <div className="grid lg:grid-cols-6 grid-cols-3 gap-0">
-              <Image src="/partner.png" width={190} height={100} alt="" />
-              <Image src="/partner.png" width={190} height={100} alt="" />
-              <Image src="/partner.png" width={190} height={100} alt="" />
-              <Image src="/partner.png" width={190} height={100} alt="" />
-              <Image src="/partner.png" width={190} height={100} alt="" />
-              <Image src="/partner.png" width={190} height={100} alt="" />
-              <Image src="/partner.png" width={190} height={100} alt="" />
-              <Image src="/partner.png" width={190} height={100} alt="" />
-              <Image src="/partner.png" width={190} height={100} alt="" />
-              <Image src="/partner.png" width={190} height={100} alt="" />
-              <Image src="/partner.png" width={190} height={100} alt="" />
-              <Image src="/partner.png" width={190} height={100} alt="" />
+            <div className="flex flex-wrap gap-2">
+              {partnerData?.map((item, i) => (
+                <div className="mx-auto flex">
+                  <img src={baseURL + item.imageUrl} width={190} height={100} alt="" />
+                </div>
+              ))}
             </div>
           </div>
         </Container>
