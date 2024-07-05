@@ -33,7 +33,7 @@ const Navbar = () => {
     >
       <div className="w-[20%] text-bold text-3xl">Logo</div>
       <div className="lg:flex hidden space-x-8 w-[60%] justify-center">
-        {menu.map((item, i) => (
+        {menu?.map((item, i) => (
           <NavItems
             key={i}
             title={item.title}

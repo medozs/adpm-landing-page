@@ -23,6 +23,17 @@ export const useStatistic = (options) => {
     }, options)
 }
 
+export const useProductSection = (options, id) => {
+    return useQuery(["section"], () => {
+        return axios.get(serviceURL("api", "product/" + id + "/sections"), {
+            auth: {
+                username: process.env.NEXT_PUBLIC_BASIC_AUTH_USERNAME || "123",
+                password: process.env.NEXT_PUBLIC_BASIC_AUTH_PASSWORD || "123"
+            }
+        })
+    }, options)
+}
+
 export const useSocmed = (options) => {
     return useQuery(["social-media"], () => {
         return axios.get(serviceURL("api", "socialmedia"), {
