@@ -1,12 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { HeroBanner } from "../../components/hero";
 import { Container } from "../../components/container";
 import { ContactFooter } from "../../components/footer/contactFooter";
 import { ProjectCard } from "../../components/card/projectCard";
 import { serviceListLite } from "../../utils/dummyData";
+import { useProduct, useProjectByProduct } from "../../hooks/api/home";
+import { baseURL } from "../../utils";
 
 const Projects = () => {
-  const [isSelected, setSelected] = useState({ id: 1, isSelect: true });
+  const product = useProduct()
+  const productData = product?.data?.data?.data
+  const [isSelected, setSelected] = useState({ id: 4, isSelect: true });
+  const project = useProjectByProduct({}, isSelected.id)
+  const projectData = project?.data?.data?.data
+
+  useEffect(() => {
+    project.refetch()
+  }, [isSelected])
+
   return (
     <>
       <HeroBanner
@@ -20,7 +31,7 @@ const Projects = () => {
             COMPANY COMITMENT
           </div>
           <div className="flex justify-between">
-            {serviceListLite.map((item, i) => (
+            {productData?.map((item, i) => (
               <div
                 key={i}
                 onClick={() =>
@@ -33,36 +44,14 @@ const Projects = () => {
             ))}
           </div>
           <div className="grid grid-cols-3 gap-8">
-            <ProjectCard
-              img="/project-card.jpeg"
-              client="Freeport"
-              scope="Design & Set Up"
-              location="Papua, Indonesia"
-            />
-            <ProjectCard
-              img="/project-card.jpeg"
-              client="Freeport"
-              scope="Design & Set Up"
-              location="Papua, Indonesia"
-            />
-            <ProjectCard
-              img="/project-card.jpeg"
-              client="Freeport"
-              scope="Design & Set Up"
-              location="Papua, Indonesia"
-            />
-            <ProjectCard
-              img="/project-card.jpeg"
-              client="Freeport"
-              scope="Design & Set Up"
-              location="Papua, Indonesia"
-            />
-            <ProjectCard
-              img="/project-card.jpeg"
-              client="Freeport"
-              scope="Design & Set Up"
-              location="Papua, Indonesia"
-            />
+            {projectData?.map((item, i) => (
+              <ProjectCard
+                img={baseURL + item.imageUrl}
+                client={item.client}
+                scope={item.scope}
+                location={item.location}
+              />
+            ))}
           </div>
         </div>
       </Container>

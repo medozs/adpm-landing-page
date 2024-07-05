@@ -47,7 +47,7 @@ export const useProject = (options) => {
 
 export const useProjectByProduct = (options, id) => {
     return useQuery(["projectById"], () => {
-        return axios.get(serviceURL("api", "product/" + id + "projects"), {
+        return axios.get(serviceURL("api", "product/" + id + "/projects"), {
             auth: {
                 username: process.env.NEXT_PUBLIC_BASIC_AUTH_USERNAME || "123",
                 password: process.env.NEXT_PUBLIC_BASIC_AUTH_PASSWORD || "123"
