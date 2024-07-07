@@ -12,7 +12,7 @@ const About = () => {
     <>
       <HeroBanner
         title="A Moments of Best Built"
-        img="bg-[url('/1.jpeg')]"
+        img="bg-[url('/16.png')]"
       />
       <Container>
         <div className="space-y-8 my-32">
