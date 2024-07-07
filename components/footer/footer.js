@@ -47,13 +47,13 @@ export const Footer = () => {
           </div>
           <div className="flex space-x-3 border-t-[1px] border-white pt-4">
             {socmedData?.filter(item => item.name == "facebook")?.map((item, i) => (
-              <Facebook className="lg:w-8 lg:h-8 h-4 w-4" />
+              <Facebook key={i} className="lg:w-8 lg:h-8 h-4 w-4" />
             ))}
             {socmedData?.filter(item => item.name == "instagram")?.map((item, i) => (
-              <Instagram className="lg:w-8 lg:h-8 h-4 w-4" />
+              <Instagram key={i} className="lg:w-8 lg:h-8 h-4 w-4" />
             ))}
             {socmedData?.filter(item => item.name == "twitter")?.map((item, i) => (
-              <X className="lg:w-8 lg:h-8 h-4 w-4" />
+              <X key={i} className="lg:w-8 lg:h-8 h-4 w-4" />
             ))}
           </div>
         </div>
