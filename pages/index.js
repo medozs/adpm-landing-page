@@ -263,7 +263,7 @@ export default function Home() {
           className={`py-32 lg:flex lg:space-x-32 space-x-0 space-y-5 lg:space-y-0 items-center justify-between transition-all duration-500 ${aboutVisible ? "blur-none visible" : "invisible blur-sm -translate-y-12"}`}
         >
           <img
-            src="/img-2.jpeg"
+            src="/3.png"
             alt=""
             className="lg:w-[50%] aspect-square lg:h-[500px] object-cover object-bottom"
             width={1000}
