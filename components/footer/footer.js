@@ -16,7 +16,7 @@ export const Footer = () => {
           <div className="space-y-5">
             <div className="text-bold text-3xl">Logo</div>
             <div className="text-sm lg:text-base">
-            recognized leader in technical testing, inspection, and engineering design services, dedicated to delivering innovative solutions that ensure safety, reliability, and customer satisfaction.
+              recognized leader in technical testing, inspection, and engineering design services, dedicated to delivering innovative solutions that ensure safety, reliability, and customer satisfaction.
               in Industry, the heartbeat of modern civilization resonates
               through the relentless pursuit of progress.
             </div>
