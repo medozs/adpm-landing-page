@@ -171,7 +171,7 @@ export default function Home() {
             </div>
           </div>
         ))}
-        {/ <div className="absolute bottom-20 right-20 z-20 flex space-x-4">
+        {/* <div className="absolute bottom-20 right-20 z-20 flex space-x-4">
           <ArrowBack
             fontSize="large"
             className="hover:scale-150 scale-125 shadow-md hover:shadow-lg shadow-black bg-[#DBD5D2] p-2 transition-all duration-500 ease-in-out cursor-pointer"
@@ -180,7 +180,7 @@ export default function Home() {
             fontSize="large"
             className="hover:scale-150 scale-125 shadow-md hover:shadow-lg shadow-black bg-[#DBD5D2] p-2 transition-all duration-500 ease-in-out cursor-pointer"
           />
-        </div> /}
+        </div> */}
       </div>
       <div className="h-2 w-full flex">
         <div
