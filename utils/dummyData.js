@@ -1,6 +1,6 @@
 export const bannerData = [
   {
-    image: "/1.png",
+    image: "/17.png",
     title: "Achieve Excellence",
     desc: "Provide exceptional technical testing, inspection, and engineering design services with the highest standards to ensure safety and satisfaction in every project."
   },
@@ -10,7 +10,7 @@ export const bannerData = [
     desc: "Develop dynamic engineering design solutions tailored to the specific needs of each customer, driving project success with advanced technology."
   },
   {
-    image: "/3.png",
+    image: "/17.png",
     title: "Promote Integrity",
     desc: "Uphold the highest standards of integrity and professionalism in every aspect of our work, fostering trust and long-term partnerships with our clients"
   },
