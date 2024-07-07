@@ -14,7 +14,8 @@ export const ContactFooter = () => {
             <div className="text-2xl lg:text-5xl font-bold">
               With us,<br />
               expect reliable, exceptional outcomes<br />
-              and enduring value in every endeavor
+              and enduring value<br />
+              in every endeavor
             </div>
             <div className="font-semibold text-sm lg:text-base">
               Always Ready to Lend a Hand
