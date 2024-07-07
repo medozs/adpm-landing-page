@@ -28,7 +28,7 @@ const Projects = () => {
       <HeroBanner
         title="Explore Our Projects"
         desc="From Vision to Reality Our Project Portfolio Delivers"
-        img="bg-[url('/project.jpeg')]"
+        img="bg-[url('/6.png')]"
       />
       <Container>
         <div className="space-y-12 my-32 mb-64">
