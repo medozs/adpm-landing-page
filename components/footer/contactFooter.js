@@ -13,12 +13,9 @@ export const ContactFooter = () => {
           <div className="lg:space-y-10 space-y-3 lg:w-[70%] my-auto">
             <div className="text-2xl lg:text-5xl font-bold">
               With us,<br />
-              expect reliable, exceptional outcomes<br />
-              and enduring value<br />
-              in every endeavor
             </div>
             <div className="font-semibold text-sm lg:text-base">
-              Always Ready to Lend a Hand
+              Expect reliable, exceptional outcomes and enduring value in every endeavor
             </div>
             <div className="flex">
               <Button
