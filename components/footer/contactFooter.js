@@ -13,9 +13,11 @@ export const ContactFooter = () => {
           <div className="lg:space-y-10 space-y-3 lg:w-[70%] my-auto">
             <div className="text-2xl lg:text-5xl font-bold">
               With us,<br />
+              Expect Reliable<br />
+              Exceptional Outcomes
             </div>
             <div className="font-semibold text-sm lg:text-base">
-              Expect reliable, exceptional outcomes and enduring value in every endeavor
+            We lead with advanced technology, a skilled team of professionals, and a proven history of ensuring safety, reliability, and client satisfaction
             </div>
             <div className="flex">
               <Button
