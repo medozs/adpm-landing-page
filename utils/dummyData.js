@@ -1,18 +1,18 @@
 export const bannerData = [
   {
-    image: "/banner-1.png",
-    title: "Would you like more value for your project?",
-    desc: "We ensure all services and products had certified quality, fabricated and handled with dedicated manpower in their respective competentcies and engineering discipline"
+    image: "/1.png",
+    title: "Achieve Excellence",
+    desc: "Provide exceptional technical testing, inspection, and engineering design services with the highest standards to ensure safety and satisfaction in every project."
   },
   {
-    image: "/banner-2.jpg",
-    title: "Elevate Your Project's Success with Superior Quality",
-    desc: "Experience unparalleled excellence as we meticulously oversee every aspect of production, ensuring each service and product meets rigorous quality standards. Our dedicated team of experts brings expertise across diverse disciplines, guaranteeing optimal results for your project"
+    image: "/17.png",
+    title: "Drive Development",
+    desc: "Develop dynamic engineering design solutions tailored to the specific needs of each customer, driving project success with advanced technology."
   },
   {
-    image: "/banner-3.jpg",
-    title: "Enhance Your Project's Potential with Certified Excellence",
-    desc: "Harness the power of precision and proficiency as we meticulously certify the quality of all services and products. Backed by dedicated manpower proficient in their respective disciplines, we ensure unmatched standards of excellence to elevate your project to new heights of success"
+    image: "/3.png",
+    title: "Promote Integrity",
+    desc: "Uphold the highest standards of integrity and professionalism in every aspect of our work, fostering trust and long-term partnerships with our clients"
   },
 ]
 
@@ -20,17 +20,17 @@ export const serviceList = [
     {
         id: 1,
         title: "Design Engineering",
-        thumb: "/banner-1.png",
+        thumb: "/1.png",
     },
     {
         id: 2,
         title: "Design Engineering",
-        thumb: "/banner-2.jpg",
+        thumb: "/17.png",
     },
     {
         id: 3,
         title: "Design Engineering",
-        thumb: "/banner-3.jpg",
+        thumb: "/3.png",
     },
     {
         id: 4,
