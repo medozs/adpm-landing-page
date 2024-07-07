@@ -393,7 +393,7 @@ export default function Home() {
             </div>
             <div className="flex flex-wrap gap-2">
               {partnerData?.map((item, i) => (
-                <div className="mx-auto flex">
+                <div key={i} className="mx-auto flex">
                   <img src={baseURL + item.imageUrl} width={190} height={100} alt="" />
                 </div>
               ))}

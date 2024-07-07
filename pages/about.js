@@ -71,11 +71,11 @@ const About = () => {
           <div className="lg:flex space-y-6 lg:space-y-0 justify-between">
             <div className="h-full lg:w-1/3 space-y-2 lg:space-y-8 font-semibold text-sm lg:text-lg">
               {documentData?.map((item, i) => (
-                <div className={selected == item.name ? "bg-primary px-3 ml-5 transition-all duration-300" : "bg-transparent px-3 transition-all duration-300"} onClick={() => setSelected(item.name)} key={i}>{item.name}</div>
+                <div key={i} className={selected == item.name ? "bg-primary px-3 ml-5 transition-all duration-300" : "bg-transparent px-3 transition-all duration-300"} onClick={() => setSelected(item.name)}>{item.name}</div>
               ))}
             </div>
             {documentData?.map((item, i) => (
-              <img hidden={selected !== item.name} src={baseURL + item.documentUrl} className="h-[500px]" />
+              <img key={i} hidden={selected !== item.name} src={baseURL + item.documentUrl} className="h-[500px]" />
             ))}
           </div>
         </div>
