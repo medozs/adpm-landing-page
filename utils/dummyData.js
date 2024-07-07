@@ -35,17 +35,17 @@ export const serviceList = [
     {
         id: 4,
         title: "Design Engineering",
-        thumb: "/banner-1.png",
+        thumb: "/3.png",
     },
     {
         id: 5,
         title: "Design Engineering",
-        thumb: "/banner-2.jpg",
+        thumb: "/3.png",
     },
     {
         id: 6,
         title: "Design Engineering",
-        thumb: "/banner-3.jpg",
+        thumb: "/3.png",
     },
 ]
 
@@ -56,7 +56,7 @@ export const worksList = [
     client: "Bartha",
     location: "Jakarta",
     scope: "-",
-    img: "/works1.jpeg"
+    img: "/3.png"
   },
   {
     id: 2,
@@ -64,7 +64,7 @@ export const worksList = [
     client: "Bartha",
     location: "Jakarta",
     scope: "-",
-    img: "/banner-1.png"
+    img: "/3.png"
   },
   {
     id: 3,
@@ -72,7 +72,7 @@ export const worksList = [
     client: "Bartha",
     location: "Jakarta",
     scope: "-",
-    img: "/works1.jpeg"
+    img: "/3.png"
   },
   {
     id: 4,
@@ -80,7 +80,7 @@ export const worksList = [
     client: "Bartha",
     location: "Jakarta",
     scope: "-",
-    img: "/banner-2.jpg"
+    img: "/3.png"
   },
   {
     id: 5,
@@ -88,7 +88,7 @@ export const worksList = [
     client: "Bartha",
     location: "Jakarta",
     scope: "-",
-    img: "/works1.jpeg"
+    img: "/3.png"
   }
 ]
 
