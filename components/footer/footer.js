@@ -21,7 +21,7 @@ export const Footer = () => {
               recognized leader in technical testing, inspection, and engineering design services, dedicated to delivering innovative solutions that ensure safety, reliability, and customer satisfaction.
 >>>>>>> 493e2cd0161da8c07b1f707cc30ebcf133e2650b
               in Industry, the heartbeat of modern civilization resonates
-              through the relentless pursuit of progress!.
+              through the relentless pursuit of progress...
             </div>
           </div>
         </div>
