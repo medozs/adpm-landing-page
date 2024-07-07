@@ -12,7 +12,7 @@ const About = () => {
     <>
       <HeroBanner
         title="A Moments of Best Built"
-        img="bg-[url('/about.jpeg')]"
+        img="bg-[url('/1.jpeg')]"
       />
       <Container>
         <div className="space-y-8 my-32">
@@ -21,10 +21,10 @@ const About = () => {
               COMPANY COMITMENT
             </div>
             <div className="text-sm lg:text-base">
-              ADPM prioritizing safety and professionalism into business core,
-              aspect. We always make sure to fulfill all safety and business
-              regulation, so that all works can be done properly and customers
-              can trust us to do the work they provide.
+            With a commitment to providing high-quality services and innovative solutions, 
+            we strive to be a trusted partner in ensuring quality and safety in every project we undertake. 
+            Our comprehensive services encompass not only precise and thorough technical inspections 
+            but also cutting-edge design engineering solutions tailored to meet the specific needs of our clients.
             </div>
           </div>
         </div>
@@ -34,10 +34,9 @@ const About = () => {
           <div className="lg:flex justify-between mx-auto">
             <div className="text-2xl lg:text-4xl font-bold">OUR VISION</div>
             <div className="lg:w-[50%] text-sm lg:text-base lg:text-right text-left">
-              To be the premier and trusted provider of mechanical and
-              manufacturing services to the mining industry, recognized for our
-              innovation, expertise, and commitment to safety, making a positive
-              impact on our customers and the environment.
+            To be a recognized leader in technical testing, inspection, and engineering design services, 
+            dedicated to delivering innovative solutions that ensure safety, reliability, 
+            and customer satisfaction.
             </div>
           </div>
           <div className="lg:flex justify-between mx-auto">
@@ -45,10 +44,11 @@ const About = () => {
               OUR MISSION
             </div>
             <div className="lg:w-[50%] text-sm lg:text-base lg:text-left text-right">
-              To be the premier and trusted provider of mechanical and
-              manufacturing services to the mining industry, recognized for our
-              innovation, expertise, and commitment to safety, making a positive
-              impact on our customers and the environment.
+            Achieve Excellence<br />
+            Drive Development<br />
+            Promote Integrity<br />
+            Maximize Expertise<br />
+            Deliver Beyond
             </div>
             <div className="lg:block hidden text-2xl lg:text-4xl font-bold">
               OUR MISSION
@@ -82,9 +82,7 @@ const About = () => {
       </Container>
       <div className="bg-section py-32 text-center font-semibold text-sm lg:text-xl">
         <Container>
-          Beauty happens with code not by chance, We employee creative tools,
-          code and solid online branding knowledge to build an elegant solutions
-          for our client.
+        With us, expect reliable, exceptional outcomes and enduring value in every endeavor.
         </Container>
       </div>
     </>
