@@ -12,9 +12,9 @@ export const ContactFooter = () => {
         <div className="flex w-full relative justify-between">
           <div className="lg:space-y-10 space-y-3 lg:w-[70%] my-auto">
             <div className="text-2xl lg:text-5xl font-bold">
-              Smart Business <br />
-              Growth Starts Here. <br />
-              Take the First Step!
+              With us,<br />
+              expect reliable, exceptional outcomes<br />
+              and enduring value in every endeavor
             </div>
             <div className="font-semibold text-sm lg:text-base">
               Always Ready to Lend a Hand
