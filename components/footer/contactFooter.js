@@ -17,7 +17,7 @@ export const ContactFooter = () => {
               Exceptional Outcomes
             </div>
             <div className="font-semibold text-sm lg:text-base">
-            We lead with advanced technology, a skilled team of professionals, and a proven history of ensuring safety, reliability, and client satisfaction
+            We lead with advanced technology, a skilled team, and ensuring safety, reliability, and client satisfaction
             </div>
             <div className="flex">
               <Button
