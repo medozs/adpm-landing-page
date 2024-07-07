@@ -10,6 +10,7 @@ import { useRouter } from "next/router";
 import Navbar from "../components/navbar";
 import { Footer } from "../components/footer/footer";
 import { AuthProvider } from "../hooks/api/auth";
+import { AlertModal } from "../components/modals/alertModal";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,7 @@ const MyApp = ({ Component, pageProps: { ...pageProps } }) => {
       <Provider store={store}>
         <Navbar />
         <Component {...pageProps} />
+        <AlertModal />
         <Footer />
       </Provider>
     </QueryClientProvider>

@@ -1,4 +1,4 @@
-import { useQuery } from "react-query"
+import { useMutation, useQuery } from "react-query"
 import { axios, serviceURL } from "../../../utils"
 
 export const useHero = (options) => {
@@ -103,6 +103,17 @@ export const useProductGallery = (options, id) => {
 export const useDocument = (options) => {
     return useQuery(["document"], () => {
         return axios.get(serviceURL("api", "document"), {
+            auth: {
+                username: process.env.NEXT_PUBLIC_BASIC_AUTH_USERNAME || "123",
+                password: process.env.NEXT_PUBLIC_BASIC_AUTH_PASSWORD || "123"
+            }
+        })
+    }, options)
+}
+
+export const useCreateContact = (options) => {
+    return useMutation((formData) => {
+        return axios.post(serviceURL("api", "contact"), formData, {
             auth: {
                 username: process.env.NEXT_PUBLIC_BASIC_AUTH_USERNAME || "123",
                 password: process.env.NEXT_PUBLIC_BASIC_AUTH_PASSWORD || "123"

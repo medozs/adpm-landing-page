@@ -1,9 +1,54 @@
 import React, { useState } from "react";
 import { Container } from "../components/container";
 import Button from "../components/button";
+import { useDispatch } from "../hooks/redux";
+import { useCreateContact } from "../hooks/api/home";
+import { onAlert } from "../redux/slices/utils";
 
 const Contact = () => {
   const [isActive, setActive] = useState({ type: "", active: false });
+  const dispatch = useDispatch()
+  
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [subject, setSubject] = useState("")
+  const [message, setMessage] = useState("")
+
+  const handleReset = () => {
+    window.location.reload()
+  }
+
+  const submitMessage = useCreateContact({
+    onSuccess: () => {
+      dispatch(
+        onAlert({
+          type: "success",
+          title: "Berhasil",
+          description: "Berhasil mengirim pesan.",
+          onClose: () => handleReset()
+        })
+      )
+    },
+    onError: ({ response: { data } }) => {
+      dispatch(
+        onAlert({
+          type: "error",
+          title: "Terjadi Kesalahan",
+          description: data.message,
+        })
+      )
+    },
+  })
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    submitMessage.mutate({
+      name,
+      email,
+      subject,
+      message
+    })
+  }
   return (
     <Container>
       <div className="flex justify-between py-52">
@@ -26,6 +71,7 @@ const Contact = () => {
               onBlur={() => setActive({ type: "name", active: false })}
               type="text"
               className={`transition-all duration-500 border-b-2 ${isActive.type === "name" && isActive.active === true ? "border-primary" : "border-secondary"} outline-none px-2 py-1`}
+              onChange={(e) => setName(e.target.value)}
             />
           </div>
           <div className="flex flex-col">
@@ -39,6 +85,7 @@ const Contact = () => {
               onBlur={() => setActive({ type: "email", active: false })}
               type="text"
               className={`transition-all duration-500 border-b-2 ${isActive.type === "email" && isActive.active === true ? "border-primary" : "border-secondary"} outline-none px-2 py-1`}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="flex flex-col">
@@ -52,6 +99,7 @@ const Contact = () => {
               onBlur={() => setActive({ type: "subject", active: false })}
               type="text"
               className={`transition-all duration-500 border-b-2 ${isActive.type === "subject" && isActive.active === true ? "border-primary" : "border-secondary"} outline-none px-2 py-1`}
+              onChange={(e) => setSubject(e.target.value)}
             />
           </div>
           <div className="flex flex-col">
@@ -66,10 +114,11 @@ const Contact = () => {
               onBlur={() => setActive({ type: "message", active: false })}
               type="text"
               className={`transition-all duration-500 border-b-2 ${isActive.type === "message" && isActive.active === true ? "border-primary" : "border-secondary"} outline-none px-2 py-1`}
+              onChange={(e) => setMessage(e.target.value)}
             />
           </div>
           <div className="flex">
-            <Button title="SEND MESSAGE" contained />
+            <Button title="SEND MESSAGE" contained onClick={handleSubmit} />
           </div>
         </div>
       </div>
