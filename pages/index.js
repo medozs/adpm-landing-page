@@ -263,7 +263,7 @@ export default function Home() {
           className={`py-32 lg:flex lg:space-x-32 space-x-0 space-y-5 lg:space-y-0 items-center justify-between transition-all duration-500 ${aboutVisible ? "blur-none visible" : "invisible blur-sm -translate-y-12"}`}
         >
           <img
-            src="/3.png"
+            src="/2.png"
             alt=""
             className="lg:w-[50%] aspect-square lg:h-[500px] object-cover object-bottom"
             width={1000}
@@ -271,12 +271,12 @@ export default function Home() {
           />
           <div ref={about} className="lg:w-[50%] space-y-5">
             <div className="font-bold text-2xl lg:text-4xl text-right">
-              We’re the future of mining industry
+              Detailed inspections to ensure compliance and safety
             </div>
             <div className="text-right lg:text-base text-sm">
-              We ensure all services and products had certified quality,
-              fabricated and handled with dedicated manpower in their respective
-              competentcies and engineering discipline
+            we understand the importance of precision and reliability in both inspection 
+            and engineering design, and we are committed to upholding the highest standards 
+            in every aspect of our work.
             </div>
             <div className="flex justify-end">
               <Button
