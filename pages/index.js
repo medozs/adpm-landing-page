@@ -196,10 +196,13 @@ export default function Home() {
                 Building Your Vision with Quality and Innovation
               </h2>
               <p className="lg:text-base text-sm">
-                Established in 2012, Struktura has been a leading force in the
-                construction industry, specializing in commercial office
-                building construction. Our commitment to quality and innovation
-                sets us apart.
+              Adi Prakasa Mekanindo is a company established in 2018, 
+              specializing in technical testing and inspection services, 
+              as well as design engineering fabrication. 
+              With a commitment to providing high-quality services and innovative solutions, 
+              we strive to be a trusted partner in ensuring quality and safety in every project we undertake. 
+              Our comprehensive services encompass not only precise and thorough technical inspections 
+              but also cutting-edge design engineering solutions tailored to meet the specific needs of our clients.
               </p>
             </div>
             <div className="lg:flex justify-between lg:w-[50%] lg:space-x-5">

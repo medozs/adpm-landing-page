@@ -16,8 +16,7 @@ export const Footer = () => {
           <div className="space-y-5">
             <div className="text-bold text-3xl">Logo</div>
             <div className="text-sm lg:text-base">
-              in Industry, the heartbeat of modern civilization resonates
-              through the relentless pursuit of progress.
+            We strive to be a trusted partner in ensuring quality and safety in every project we undertake
             </div>
           </div>
         </div>
